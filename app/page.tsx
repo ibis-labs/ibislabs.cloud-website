@@ -1,4 +1,4 @@
-import Image from "next/image";
+import AnimatedLogo from "@/components/AnimatedLogo";
 import StewardshipCounter from "@/components/StewardshipCounter";
 
 export default function Home() {
@@ -10,15 +10,8 @@ export default function Home() {
 
       {/* --- HERO SECTION --- */}
       <section className="flex flex-col items-center text-center mb-20 w-full max-w-4xl">
-        <div className="relative w-48 h-48 md:w-64 md:h-64 mb-8 animate-pulse-glow">
-          {/* Ensure thoth-icon-512.png is in your /public folder */}
-          <Image
-            src="/thoth-icon-512x512.png"
-            alt="Ibis Labs Logo"
-            fill
-            className="object-contain"
-            priority
-          />
+        <div className="relative w-56 h-56 md:w-80 md:h-80 mb-12 mx-auto flex items-center justify-center">
+          <AnimatedLogo />
         </div>
 
         <h1 className="text-4xl md:text-6xl font-bold tracking-[0.2em] text-white uppercase mb-2">
