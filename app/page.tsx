@@ -52,7 +52,7 @@ export default function Home() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Card 1 */}
-          <div className="group border border-gray-800 bg-black/50 p-6 rounded hover:border-cyber-cyan transition-colors duration-300 cursor-default">
+          <a href="https://www.hoa-hub.cloud/" target="_blank" rel="noopener noreferrer" className="group border border-gray-800 bg-black/50 p-6 rounded hover:border-cyber-cyan transition-colors duration-300 block">
             <div className="flex justify-between items-start mb-4">
               <h4 className="text-xl text-white group-hover:text-cyber-cyan transition-colors">HOA-hub.cloud</h4>
               <span className="text-xs border border-cyber-cyan text-cyber-cyan px-2 py-1 rounded">In Progress</span>
@@ -60,10 +60,10 @@ export default function Home() {
             <p className="text-gray-400 text-sm">
               Facilitating transparent and accountable community management.
             </p>
-          </div>
+          </a>
 
           {/* Card 2 */}
-          <div className="group border border-gray-800 bg-black/50 p-6 rounded hover:border-cyber-cyan transition-colors duration-300 cursor-default">
+          <a href="https://thoths-notebook.unclepetelaboratories.net/" target="_blank" rel="noopener noreferrer" className="group border border-gray-800 bg-black/50 p-6 rounded hover:border-cyber-cyan transition-colors duration-300 block">
             <div className="flex justify-between items-start mb-4">
               <h4 className="text-xl text-white group-hover:text-cyber-cyan transition-colors">Thoth's Notebook</h4>
               <span className="text-xs border border-cyber-cyan text-cyber-cyan px-2 py-1 rounded">Live</span>
@@ -71,7 +71,7 @@ export default function Home() {
             <p className="text-gray-400 text-sm">
               The digital archive and operational brain of Ibis Labs.
             </p>
-          </div>
+          </a>
         </div>
       </section>
 
