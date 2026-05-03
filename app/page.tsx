@@ -33,7 +33,7 @@ export default function Home() {
             Core Values
           </h2>
           
-          <ul className="grid grid-cols-2 gap-4 mb-8 text-gray-300 text-sm md:text-base">
+          <ul className="flex flex-col gap-2 mb-8 text-gray-300 text-sm md:text-base">
             <li className="flex items-center"><span className="text-cyber-cyan mr-2">▹</span> Trustworthiness</li>
             <li className="flex items-center"><span className="text-cyber-cyan mr-2">▹</span> Integrity</li>
             <li className="flex items-center"><span className="text-cyber-cyan mr-2">▹</span> Focus</li>

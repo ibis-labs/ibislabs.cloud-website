@@ -33,8 +33,8 @@ export default function StewardshipCounter() {
   }, []);
 
   return (
-    <div className="font-mono text-sm md:text-base tracking-widest text-gray-400 mt-4 border border-gray-800 p-2 inline-block rounded bg-black/50 backdrop-blur-sm">
-      <span className="text-cyber-cyan uppercase mr-2">On the Grind for:</span>
+    <div className="font-mono text-sm md:text-base tracking-widest text-gray-400 mt-4 border border-gray-800 p-2 inline-flex flex-col items-center rounded bg-black/50 backdrop-blur-sm">
+      <span className="text-cyber-cyan uppercase">On the Grind for:</span>
       <span className="text-cyber-cyan shadow-cyber-cyan drop-shadow-[0_0_2px_rgba(0,255,255,0.8)]">
         {duration || "Initializing..."}
       </span>
