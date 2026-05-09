@@ -63,20 +63,53 @@ export default function Home() {
           </a>
 
           {/* Card 2 */}
-          <a href="https://thoths-notebook.unclepetelaboratories.net/" target="_blank" rel="noopener noreferrer" className="group border border-gray-800 bg-black/50 p-6 rounded hover:border-cyber-cyan transition-colors duration-300 block">
+          <a href="https://www.thoths-notebook.ibislabs.cloud" target="_blank" rel="noopener noreferrer" className="group border border-gray-800 bg-black/50 p-6 rounded hover:border-cyber-cyan transition-colors duration-300 block">
             <div className="flex justify-between items-start mb-4">
               <h4 className="text-xl text-white group-hover:text-cyber-cyan transition-colors">Thoth's Notebook</h4>
               <span className="text-xs border border-cyber-cyan text-cyber-cyan px-2 py-1 rounded">Live</span>
             </div>
             <p className="text-gray-400 text-sm">
-              The digital archive and operational brain of Ibis Labs.
+              Cyber-Egyptian productivity suite: Tasks, daily recurring rituals, secure notes, E2E encrypted messaging, and complete workout system.
             </p>
           </a>
         </div>
       </section>
 
-      <footer className="mt-24 text-gray-600 text-xs">
-        &copy; {new Date().getFullYear()} Ibis Labs LLC. All Systems Nominal.
+      {/* --- CONTACT SECTION --- */}
+      <section className="w-full max-w-2xl mt-24">
+        <h3 className="text-center text-gray-500 mb-8 uppercase tracking-widest text-sm">Contact</h3>
+        <div className="border border-gray-800 bg-black/50 p-8 rounded grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-300">
+          <div className="flex flex-col gap-1">
+            <span className="text-cyber-cyan uppercase tracking-widest text-xs mb-1">Principal</span>
+            <span className="text-white font-semibold">Peter Blunk</span>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className="text-cyber-cyan uppercase tracking-widest text-xs mb-1">Email</span>
+            <a href="mailto:pete@ibislabs.cloud" className="hover:text-cyber-cyan transition-colors">pete@ibislabs.cloud</a>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className="text-cyber-cyan uppercase tracking-widest text-xs mb-1">Phone</span>
+            <a href="tel:+12063533981" className="hover:text-cyber-cyan transition-colors">206-353-3981</a>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className="text-cyber-cyan uppercase tracking-widest text-xs mb-1">Address</span>
+            <span>127 SW 154th St, Suite 307</span>
+            <span>Burien, WA 98166</span>
+          </div>
+        </div>
+      </section>
+
+      <footer className="mt-24 text-center">
+        <div className="flex items-center justify-center gap-4 mb-2">
+          <img src="/KaTouche.svg" alt="Ka Touche" className="h-40 w-auto" style={{filter: 'brightness(2.5) saturate(100%) drop-shadow(0 0 0px rgba(0,255,136,1)) drop-shadow(0 0 25px rgba(0,255,136,0.9))', mixBlendMode: 'screen'}} />
+          <div className="flex flex-col items-start gap-1">
+            <span className="text-sm text-cyber-cyan tracking-widest uppercase">Digital Service by Ka</span>
+            <span className="text-xs text-cyber-cyan/60 tracking-wide">Powered by The Ka Terminal at Ibis Labs LLC</span>
+          </div>
+        </div>
+        <div className="text-gray-400 text-xs">
+          &copy; {new Date().getFullYear()} Ibis Labs LLC. All Rights Reserved.
+        </div>
       </footer>
     </main>
   );
