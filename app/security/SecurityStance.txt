@@ -1,0 +1,23 @@
+Our Security Philosophy
+Data security and privacy are not afterthoughts; they are the bedrock upon which Ibis Labs is constructed. I believe that being a boutique software provider is a distinct advantage: I make no pretense of being a global data security conglomerate. Instead, I take a "best-in-class" approach by offloading data storage and infrastructure security to the true industry experts—Google Cloud and Firebase. My philosophy is simple: if I would not trust a platform with my own data, I will not ask you to trust it with yours. By leveraging the world-class, SOC 2 Type II, and ISO 27001-certified infrastructure provided by Google, I ensure your information is protected by the same technological standards used by major financial institutions.
+
+Zero-Knowledge Architecture and End-to-End Encryption
+For Thoth’s Notebook and Trainer Notebook Pro, we employ zero-knowledge architecture. This means the heavy lifting of encryption occurs entirely on your device, and only the resulting ciphertext is stored on the Firebase infrastructure. Neither Ibis Labs, nor Google/Firestore hold your decryption keys, which means that We physically cannot access or read your workout logs, personal notes, or private messages. Direct Messaging and writing on groups "walls" among users who elect to participate in such groups, is, additionally protected by end-to-end encryption, ensuring that messages are readable only by the intended recipient. To be clear about the trade-off: because we never possess your keys, if you lose your 24-word (Thoth's Notebook) or 12-word (Trainer Notebook Pro) backup, we have no "backdoor" to recover your data. In this architecture, security means placing the power of privacy—and the responsibility of access—directly into your hands.
+
+Infrastructure Security
+Ibis Labs has no physical servers of its own. I utilize Google Cloud and Firebase, which provides me—and you—with world-class, SOC 2 Type II and ISO 27001-certified physical and network security. I leverage Firebase’s "Encryption at Rest" for all data, ensuring that your information is protected by the same technological standards used by major financial institutions.
+
+Authentication
+I use Firebase Authentication to handle logins. I never store your password in my database. Firebase uses industry-standard hashing algorithms, and I encourage all users to implement strong, unique passwords. I do not have access to your actual password, nor would I want it.
+
+Access Controls
+I operate under a strict least-privilege access model. There is no large team of contractors or third parties with access to your data. While I may retain assistance as needed to improve operational efficiency or security, at no time will any individual or third party be granted direct access to user data without thorough vetting and signed, legally binding privacy agreements. My own access to the production environment is strictly limited, audited, and utilized only when necessary to perform essential maintenance or to assist with a support request that you have specifically initiated.
+
+Incident Response
+In the unlikely event of a security incident affecting your data, I will not hide behind corporate legal counsel. I will notify you directly via email within 72 hours of confirming a breach, clearly detailing what happened, what data was potentially affected, and the exact steps I am taking to mitigate the situation.
+
+Responsible Disclosure
+If you are a security researcher and you believe you have found a vulnerability in an Ibis Labs product, I want to hear from you. Please email pete@ibislabs.cloud with the subject line "Security Disclosure." Include a description of the issue and steps to reproduce it. I promise to acknowledge receipt within 48 hours and work to address confirmed issues. I value the security community and will not take legal action against individuals who report vulnerabilities in good faith.
+
+Security Contact
+Please direct all security-related communications to pete@ibislabs.cloud with the subject line "Security Disclosure."

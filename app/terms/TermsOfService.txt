@@ -1,0 +1,32 @@
+Acceptance of Terms
+By accessing or using any Ibis Labs product, you agree to be bound by these terms. If you do not agree with any part of these terms, please do not use our services.
+
+Description of Services
+Ibis Labs offers three distinct platforms: HOA-hub.cloud, a management tool for community associations; Trainer Notebook Pro, a fitness and progress tracking platform; and Thoth's Notebook, a productivity suite. Services are provided on an "as-is" basis, and I reserve the right to modify or discontinue features as the products evolve.
+
+User Accounts
+You are responsible for maintaining the confidentiality of your account credentials. You must provide accurate, current information during registration. Please notify me immediately at pete@ibislabs.cloud if you suspect any unauthorized access. Use of our services is restricted to individuals aged 13 and older.
+
+Acceptable Use
+You agree not to use Ibis Labs services for illegal activities, harassment, impersonation, or to upload malware. Any attempt to reverse-engineer, exploit, scrape data, or circumvent security measures is strictly prohibited. I reserve the right to suspend or terminate accounts that violate these standards of conduct.
+
+Intellectual Property and Data Sovereignty
+The software, design, branding, and code provided by Ibis Labs are the exclusive property of Ibis Labs LLC. Your data, however, belongs entirely to you. Ibis Labs LLC does not possess or touch your application data; this information is managed and stored exclusively within your designated Google Cloud/Firebase environment. By using our services, you grant Ibis Labs a limited license to facilitate the storage and processing of this data solely to provide the service. Because our products route data directly between your device and Google/Firebase infrastructure—bypassing Ibis Labs servers or devices—your data remains under your exclusive control.
+
+Regulatory Compliance Disclaimer
+HOA-hub.cloud is designed to assist HOA boards in managing their operations and facilitating transparency. However, Ibis Labs makes no guarantees that our product will ensure your compliance with complex Washington State HOA regulations. It is the sole responsibility of the HOA board to ensure their actions and records align with state law. As with any legal matter, community associations should consult their own qualified legal counsel to ensure their management practices conform to the legal framework regulating community associations.
+
+Disclaimers
+Services are provided "as-is" without warranties of any kind. HOA-hub.cloud is currently in beta; while I strive for stability, features may change, and I make no guarantees regarding uptime or data preservation beyond commercially reasonable efforts. Refunds are handled on a case-by-case basis at the sole discretion of Ibis Labs LLC.
+
+Limitation of Liability
+To the maximum extent permitted by Washington law, Ibis Labs' total liability for any claim arising out of these terms is limited to the greater of the fees you paid in the 12 months prior to the claim, or $50. Ibis Labs shall not be liable for any indirect, incidental, or consequential damages resulting from your use of the platform.
+
+Governing Law
+These terms are governed by the laws of Washington State. Any disputes arising from these services shall be resolved exclusively in the courts located in King County, Washington.
+
+Changes to These Terms
+I may update these terms occasionally. Material changes will be communicated via email or site notice. Continued use of the platform after the effective date of the changes constitutes your acceptance of the new terms.
+
+Contact
+pete@ibislabs.cloud | 127 SW 154th St, Suite 307, Burien, WA 98166

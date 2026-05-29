@@ -1,0 +1,32 @@
+Introduction
+Ibis Labs LLC is a boutique software company committed to the idea that digital tools should serve you, not exploit you. This Privacy Policy applies to ibislabs.cloud and all products offered by Ibis Labs, including HOA-hub.cloud, Trainer Notebook Pro, and Thoth's Notebook. By using our services, you entrust me with your data, and I take that responsibility seriously.
+
+Information We Collect
+I collect only what is necessary to provide the service. This includes: (a) Account Information: the name and email address you provide during registration; passwords are never stored in plaintext and are handled via secure hashing. (b) Product-Specific Data: HOA community records and financial summaries for HOA-hub; workout and session logs for Trainer Notebook Pro; and personal tasks or notes for Thoth's Notebook. (c) Usage Data: I utilize standard platform logs provided by Google Cloud and Firebase to monitor system health and feature usage. I do not create advertising profiles, track you across the web, or sell your personal information to third parties.
+
+Zero-Knowledge Architecture
+For Trainer Notebook Pro and Thoth’s Notebook, I utilize a zero-knowledge architecture. This means your sensitive content is encrypted on your device before it is ever sent to my servers. I do not hold the keys to this data, and I physically cannot access or read your workout content, personal notes, or private messages. Your privacy is protected by the strength of your own encryption keys.
+
+How We Use Your Information
+Your data is used solely to deliver the services you signed up for. This includes managing your account, providing technical support, and ensuring the platform remains performant. I do not use your information for targeted advertising, and it is never shared with third parties for marketing purposes.
+
+Third-Party Services
+Ibis Labs relies on Google Cloud and Firebase for all infrastructure, data storage, and authentication. These platforms are industry standards that provide secure, managed environments. While they process data on my behalf, they are bound by strict contractual obligations and their own privacy policies (policies.google.com/privacy). I do not use any other third-party analytics or tracking networks.
+
+Data Retention
+I maintain your data only as long as your account is active, plus a 90-day grace period to allow for account restoration or in accordance with applicable state laws. You may request the deletion of your account and associated data at any time by contacting me directly. For HOA-hub, this request must come from an authorized HOA representative.
+
+Your Rights
+As a user, you have the right to access, correct, or delete your personal information. Under the California Consumer Privacy Act (CCPA) and consistent with the spirit of the Washington My Health My Data Act, I strive to provide full transparency regarding how your data is handled. Submit access or deletion requests to pete@ibislabs.cloud, and I will respond within 30 days.
+
+Security
+I personally oversee all security protocols for Ibis Labs. My approach to security is architectural, focusing on robust data isolation and leveraging the proven infrastructure of Google Cloud. I am committed to maintaining a secure environment and will notify you promptly if I discover any unauthorized access to your account data.
+
+Children's Privacy
+Ibis Labs services are not directed at children under the age of 13. I do not knowingly collect personal information from minors. If you believe a child has provided data through our platform, please contact me immediately so that I can remove it.
+
+Changes to This Policy
+As Ibis Labs grows, this policy may be updated. Material changes will be communicated via email or through a notice on the website. Continued use of our services after such changes constitutes your acceptance of the updated policy.
+
+Contact Us
+pete@ibislabs.cloud | 206-353-3981 | 127 SW 154th St, Suite 307, Burien, WA 98166
