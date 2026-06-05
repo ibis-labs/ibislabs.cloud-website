@@ -1,6 +1,6 @@
 Introduction
 Ibis Labs LLC is a boutique software company committed to the idea that digital tools should serve you, not exploit you. This Privacy Policy applies to ibislabs.cloud and all products offered by Ibis Labs, including HOA-hub.cloud, Trainer Notebook Pro, and Thoth's Notebook. By using our services, you entrust me with your data, and I take that responsibility seriously.
-
+gi 
 Information We Collect
 I collect only what is necessary to provide the service. This includes: (a) Account Information: the name and email address you provide during registration; passwords are never stored in plaintext and are handled via secure hashing. (b) Product-Specific Data: HOA community records and financial summaries for HOA-hub; workout and session logs for Trainer Notebook Pro; and personal tasks or notes for Thoth's Notebook. (c) Usage Data: I utilize standard platform logs provided by Google Cloud and Firebase to monitor system health and feature usage. I do not create advertising profiles, track you across the web, or sell your personal information to third parties.
 
@@ -11,7 +11,11 @@ How We Use Your Information
 Your data is used solely to deliver the services you signed up for. This includes managing your account, providing technical support, and ensuring the platform remains performant. I do not use your information for targeted advertising, and it is never shared with third parties for marketing purposes.
 
 Third-Party Services
-Ibis Labs relies on Google Cloud and Firebase for all infrastructure, data storage, and authentication. These platforms are industry standards that provide secure, managed environments. While they process data on my behalf, they are bound by strict contractual obligations and their own privacy policies (policies.google.com/privacy). I do not use any other third-party analytics or tracking networks.
+Ibis Labs relies on Google Cloud and Firebase for all infrastructure, data storage, and authentication. These platforms are industry standards that provide secure, managed environments.
+
+To ensure application stability and rapidly identify software bugs, we also utilize Sentry (Functional Software, Inc.) to collect anonymous diagnostic and error telemetry data.
+
+While these third parties process data on our behalf, they are bound by strict contractual obligations and their own privacy policies (policies.google.com/privacy, sentry.io/privacy). Ibis Labs does not use any other third-party tracking networks or advertising analytics.
 
 Data Retention
 I maintain your data only as long as your account is active, plus a 90-day grace period to allow for account restoration or in accordance with applicable state laws. You may request the deletion of your account and associated data at any time by contacting me directly. For HOA-hub, this request must come from an authorized HOA representative.

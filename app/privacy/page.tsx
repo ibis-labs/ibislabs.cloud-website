@@ -62,7 +62,9 @@ export default function PrivacyPolicy() {
 
         <section id="third-parties" className="mb-10">
           <h2 className="text-cyber-cyan uppercase tracking-widest text-sm border-b border-gray-800 pb-2 mb-4">Third-Party Services</h2>
-          <p className="text-gray-300 text-sm leading-relaxed">Ibis Labs relies on Google Cloud and Firebase for all infrastructure, data storage, and authentication. These platforms are industry standards that provide secure, managed environments. While they process data on our behalf, they are bound by strict contractual obligations and their own privacy policies (policies.google.com/privacy). Ibis Labs does not use any other third-party analytics or tracking networks.</p>
+          <p className="text-gray-300 text-sm leading-relaxed mb-4">Ibis Labs relies on Google Cloud and Firebase for all infrastructure, data storage, and authentication. These platforms are industry standards that provide secure, managed environments.</p>
+          <p className="text-gray-300 text-sm leading-relaxed mb-4">To ensure application stability and rapidly identify software bugs, we also utilize Sentry (Functional Software, Inc.) to collect anonymous diagnostic and error telemetry data.</p>
+          <p className="text-gray-300 text-sm leading-relaxed">While these third parties process data on our behalf, they are bound by strict contractual obligations and their own privacy policies (policies.google.com/privacy, sentry.io/privacy). Ibis Labs does not use any other third-party tracking networks or advertising analytics.</p>
         </section>
 
         <section id="data-retention" className="mb-10">
