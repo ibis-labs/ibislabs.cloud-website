@@ -2,8 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import AnimatedLogo from "@/components/AnimatedLogo";
 import StewardshipCounter from "@/components/StewardshipCounter";
-import ClickableCard from "@/components/ClickableCard";
-import StopPropLink from "@/components/StopPropLink";
 
 export default function Home() {
   return (
@@ -25,14 +23,8 @@ export default function Home() {
         <p className="text-gray-300 italic text-lg md:text-2xl tracking-widest mb-8">Digital Stewardship & Architecture</p>
 
         <p className="text-gray-300 text-sm md:text-base max-w-2xl leading-relaxed mb-4">
-          Specializing in robust, secure, and dynamic progressive web applications (PWAs) built on the rock-solid foundation of Google Cloud and Firebase. We couple high-level backend architecture with user-friendly interfaces to deliver professional digital platforms designed for both reliability and speed.
+          Specializing in robust, secure, and dynamic progressive web applications built on the rock-solid foundation of Google Cloud and Firebase. We couple high-level backend architecture with user-friendly interfaces to deliver professional digital platforms designed for reliability and speed.
         </p>
-        <p className="text-cyber-cyan text-sm md:text-base max-w-2xl text-center leading-loose tracking-widest uppercase">
-          Focused execution<br />
-          Uncompromising trust<br />
-          Relentless pursuit of perfection
-        </p>
-
       </section>
 
       {/* --- MANIFESTO SECTION --- */}
@@ -44,16 +36,30 @@ export default function Home() {
           <h2 className="text-2xl text-cyber-cyan mb-6 uppercase tracking-widest border-b border-gray-800 pb-2 inline-block">
             Core Values
           </h2>
-          
-          <ul className="flex flex-col gap-2 mb-8 text-gray-300 text-sm md:text-base">
-            <li className="flex items-center"><span className="text-cyber-cyan mr-2">▹</span> Trustworthiness</li>
-            <li className="flex items-center"><span className="text-cyber-cyan mr-2">▹</span> Integrity</li>
-            <li className="flex items-center"><span className="text-cyber-cyan mr-2">▹</span> Focus</li>
-            <li className="flex items-center"><span className="text-cyber-cyan mr-2">▹</span> Faith in The Grind</li>
+
+          <ul className="flex flex-col gap-4 mb-8 text-gray-300 text-sm md:text-base">
+            <li className="flex items-start">
+              <span className="text-cyber-cyan mr-2 mt-0.5">▹</span>
+              <span><strong>Trustworthiness</strong> — The baseline of every relationship we build.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-cyber-cyan mr-2 mt-0.5">▹</span>
+              <span><strong>Uncompromising Integrity</strong> — Doing things the right way, every single time, without exception.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-cyber-cyan mr-2 mt-0.5">▹</span>
+              <span><strong>Focused Execution</strong> — Eliminating the noise, locking in on the target, and delivering.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="text-cyber-cyan mr-2 mt-0.5">▹</span>
+              <span><strong>Faith in The Grind</strong> — Embracing the daily discipline required to achieve elite results.</span>
+            </li>
           </ul>
 
+          <hr className="border-gray-800 my-6" />
+
           <blockquote className="border-l-2 border-cyber-cyan pl-4 italic text-lg text-gray-100">
-            "Successful outcome is not a question of <span className="text-cyber-cyan font-bold">IF</span>, but <span className="text-cyber-cyan font-bold">WHEN</span>."
+            "A successful outcome is not a question of <span className="text-cyber-cyan font-bold">IF</span>, but <span className="text-cyber-cyan font-bold">WHEN</span>."
           </blockquote>
         </div>
       </section>
@@ -64,7 +70,7 @@ export default function Home() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Card 1 */}
-          <ClickableCard href="https://www.hoa-hub.cloud/" className="group border border-cyber-cyan ring-1 ring-cyber-cyan/40 ring-offset-2 ring-offset-black bg-black/50 p-6 rounded hover:ring-2 hover:ring-cyber-cyan hover:shadow-[0_0_28px_rgba(0,255,255,0.35)] transition-all duration-200 cursor-pointer">
+          <div className="group border border-cyber-cyan ring-1 ring-cyber-cyan/40 ring-offset-2 ring-offset-black bg-black/50 p-6 rounded hover:ring-2 hover:ring-cyber-cyan hover:shadow-[0_0_28px_rgba(0,255,255,0.35)] transition-all duration-200">
             <div className="flex justify-between items-start mb-4">
               <div className="flex items-center gap-3">
                 <Image src="/HOA-hub-icon-512x512.png" alt="HOA-hub logo" width={36} height={36} className="rounded" />
@@ -79,23 +85,23 @@ export default function Home() {
               <span className="font-bold">Get started for free!</span> We&apos;re looking for 5 small to medium HOAs based in Washington State to join our beta program.
             </div>
             <div className="mt-4 flex items-center justify-between gap-2 text-xs">
-              <StopPropLink
+              <a
                 href="mailto:pete@ibislabs.cloud?subject=HOA-hub.cloud%20Demo%20Request&body=Hi%20Pete%2C%0A%0AI%27d%20like%20to%20schedule%20a%20demo%20for%20HOA-hub.cloud.%0A%0A---%20My%20Information%20---%0AName%3A%20%0APhone%3A%20%0AEmail%3A%20%0A%0APreferred%20Contact%20Method%20(mark%20one)%3A%0A%5B%20%5D%20Call%20%20%5B%20%5D%20Text%20%20%5B%20%5D%20Email%0A%0A---%20Preferred%20Demo%20Time%20---%0ADate%3A%20%0ATime%3A%20%0ATime%20Zone%3A%20%0A%0AAdditional%20notes%3A%0A"
                 className="text-cyber-cyan/70 hover:text-cyber-cyan border border-cyber-cyan/40 hover:border-cyber-cyan px-2 py-1 rounded tracking-wider uppercase transition-colors"
               >
                 Schedule a Demo
-              </StopPropLink>
-              <StopPropLink
+              </a>
+              <a
                 href="https://www.hoa-hub.cloud/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-cyber-cyan group-hover:drop-shadow-[0_0_6px_rgba(0,255,255,0.9)] transition-all"
+                className="flex items-center gap-1 text-cyber-cyan hover:drop-shadow-[0_0_6px_rgba(0,255,255,0.9)] transition-all"
               >
                 <span className="tracking-wider uppercase">Visit</span>
                 <span>↗</span>
-              </StopPropLink>
+              </a>
             </div>
-          </ClickableCard>
+          </div>
 
           {/* Card 2 */}
           <a href="https://thoths-notebook.ibislabs.cloud" target="_blank" rel="noopener noreferrer" className="group border border-cyber-cyan ring-1 ring-cyber-cyan/40 ring-offset-2 ring-offset-black bg-black/50 p-6 rounded hover:ring-2 hover:ring-cyber-cyan hover:shadow-[0_0_28px_rgba(0,255,255,0.35)] active:scale-[0.97] transition-all duration-200 block">
@@ -116,7 +122,7 @@ export default function Home() {
           </a>
 
           {/* Card 3 */}
-          <ClickableCard href="https://trainer-notebook-pro.ibislabs.cloud" className="group border border-cyber-cyan ring-1 ring-cyber-cyan/40 ring-offset-2 ring-offset-black bg-black/50 p-6 rounded hover:ring-2 hover:ring-cyber-cyan hover:shadow-[0_0_28px_rgba(0,255,255,0.35)] transition-all duration-200 cursor-pointer">
+          <div className="group border border-cyber-cyan ring-1 ring-cyber-cyan/40 ring-offset-2 ring-offset-black bg-black/50 p-6 rounded hover:ring-2 hover:ring-cyber-cyan hover:shadow-[0_0_28px_rgba(0,255,255,0.35)] transition-all duration-200">
             <div className="flex justify-between items-start mb-4">
               <div className="flex items-center gap-3">
                 <Image src="/trainer-notebook-pro-icon-512.png" alt="Trainer Notebook Pro logo" width={36} height={36} className="rounded bg-white p-0.5" />
@@ -128,23 +134,23 @@ export default function Home() {
               Zero-knowledge architecture fitness platform for trainers and their clients, as well as individual athletes and their friends — program workouts, log sessions, and track progress.
             </p>
             <div className="mt-4 flex items-center justify-between gap-2 text-xs">
-              <StopPropLink
+              <a
                 href="mailto:pete@ibislabs.cloud?subject=Trainer%20Notebook%20Pro%20Demo%20Request&body=Hi%20Pete%2C%0A%0AI%27d%20like%20to%20schedule%20a%20demo%20for%20Trainer%20Notebook%20Pro.%0A%0A---%20My%20Information%20---%0AName%3A%20%0APhone%3A%20%0AEmail%3A%20%0A%0APreferred%20Contact%20Method%20(mark%20one)%3A%0A%5B%20%5D%20Call%20%20%5B%20%5D%20Text%20%20%5B%20%5D%20Email%0A%0A---%20Preferred%20Demo%20Time%20---%0ADate%3A%20%0ATime%3A%20%0ATime%20Zone%3A%20%0A%0AAdditional%20notes%3A%0A"
                 className="text-cyber-cyan/70 hover:text-cyber-cyan border border-cyber-cyan/40 hover:border-cyber-cyan px-2 py-1 rounded tracking-wider uppercase transition-colors"
               >
                 Schedule a Demo
-              </StopPropLink>
-              <StopPropLink
+              </a>
+              <a
                 href="https://trainer-notebook-pro.ibislabs.cloud"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-cyber-cyan group-hover:drop-shadow-[0_0_6px_rgba(0,255,255,0.9)] transition-all"
+                className="flex items-center gap-1 text-cyber-cyan hover:drop-shadow-[0_0_6px_rgba(0,255,255,0.9)] transition-all"
               >
                 <span className="tracking-wider uppercase">Visit</span>
                 <span>↗</span>
-              </StopPropLink>
+              </a>
             </div>
-          </ClickableCard>
+          </div>
         </div>
       </section>
 
