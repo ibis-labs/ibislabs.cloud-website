@@ -151,6 +151,26 @@ export default function Home() {
               </a>
             </div>
           </div>
+
+          {/* Card 4 */}
+          <Link href="/shop" className="group border border-cyber-cyan ring-1 ring-cyber-cyan/40 ring-offset-2 ring-offset-black bg-black/50 p-6 rounded hover:ring-2 hover:ring-cyber-cyan hover:shadow-[0_0_28px_rgba(0,255,255,0.35)] active:scale-[0.97] transition-all duration-200 block">
+            <div className="flex justify-between items-start mb-4">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded bg-cyber-cyan/20 border border-cyber-cyan flex items-center justify-center text-cyber-cyan font-bold text-sm">
+                  ⚡
+                </div>
+                <h4 className="text-xl text-white group-hover:text-cyber-cyan transition-colors">Studio Merch & E-commerce</h4>
+              </div>
+              <span className="text-xs border border-cyber-cyan text-cyber-cyan px-2 py-1 rounded">Live Demo</span>
+            </div>
+            <p className="text-gray-400 text-sm">
+              Headless e-commerce architecture showcase featuring real-time switching between Shopify Direct and Fourthwall Automated fulfillment engines.
+            </p>
+            <div className="mt-4 flex items-center justify-end gap-1 text-xs text-cyber-cyan group-hover:drop-shadow-[0_0_6px_rgba(0,255,255,0.9)] transition-all">
+              <span className="tracking-wider uppercase font-mono">Explore Showcase</span>
+              <span>→</span>
+            </div>
+          </Link>
         </div>
       </section>
 
