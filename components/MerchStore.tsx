@@ -157,12 +157,26 @@ export default function MerchStore() {
                   {/* Image Display */}
                   <div className="relative w-full h-56 bg-gray-950 rounded mb-4 overflow-hidden border border-gray-800">
                     {product.images[0] ? (
-                      <Image
-                        src={product.images[0].url}
-                        alt={product.images[0].altText || product.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
+                      <>
+                        {/* Primary/Front Image */}
+                        <Image
+                          src={product.images[0].url}
+                          alt={product.images[0].altText || product.title}
+                          fill
+                          className={`object-cover transition-all duration-500 ${
+                            product.images[1] ? 'group-hover:opacity-0' : 'group-hover:scale-105'
+                          }`}
+                        />
+                        {/* Secondary/Back Image */}
+                        {product.images[1] && (
+                          <Image
+                            src={product.images[1].url}
+                            alt={`${product.title} - Alternative View`}
+                            fill
+                            className="object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 scale-95 group-hover:scale-100"
+                          />
+                        )}
+                      </>
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-gray-600 text-xs uppercase font-mono">
                         No Image Available

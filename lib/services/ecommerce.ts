@@ -133,7 +133,21 @@ function normalizeShopifyProduct(node: ShopifyProductNode): Product {
 }
 
 function normalizeFourthwallProduct(raw: FourthwallProduct): Product {
-  const images = (raw.images || []).map((img, idx) => ({
+  // Pool parent and variant images to gather all views
+  const rawImages = [...(raw.images || [])];
+  if (raw.variants) {
+    raw.variants.forEach((v) => {
+      if (v.images) {
+        v.images.forEach((img) => {
+          if (!rawImages.some((existing) => existing.url === img.url)) {
+            rawImages.push(img);
+          }
+        });
+      }
+    });
+  }
+
+  let images = rawImages.map((img, idx) => ({
     id: img.id || `fw-img-${idx}`,
     url: img.url,
     altText: raw.name,
@@ -141,13 +155,23 @@ function normalizeFourthwallProduct(raw: FourthwallProduct): Product {
     height: img.height,
   }));
 
+  // Reorder: Use the 3rd image as primary/front view, 1st image as secondary/hover view
+  if (images.length >= 3) {
+    const primary = images[2];
+    const secondary = images[0];
+    const remaining = images.filter((_, idx) => idx !== 0 && idx !== 2);
+    images = [primary, secondary, ...remaining];
+  }
+
   const variants = (raw.variants || []).map((v) => {
     // Fourthwall API prices are typically returned in cents (integer) or float units
     const priceAmount = typeof v.unitPrice.value === 'number' 
       ? (v.unitPrice.value > 100 ? v.unitPrice.value / 100 : v.unitPrice.value)
       : 0;
 
-    const inStock = v.stock ? v.stock.inStock : true;
+    const inStock = v.stock
+      ? (v.stock.type === 'UNLIMITED' || v.stock.inStock === true || v.stock.inStock === undefined)
+      : true;
 
     return {
       id: v.id,
@@ -166,11 +190,16 @@ function normalizeFourthwallProduct(raw: FourthwallProduct): Product {
   const maxPrice = prices.length > 0 ? Math.max(...prices) : 0;
   const currencyCode = variants[0]?.currencyCode || 'USD';
 
+  // Strip HTML tags from description
+  const cleanDescription = raw.description
+    ? raw.description.replace(/<\/?[^>]+(>|$)/g, "")
+    : '';
+
   return {
     id: raw.id,
     handle: raw.slug || raw.id,
     title: raw.name,
-    description: raw.description || '',
+    description: cleanDescription,
     priceRange: {
       minVariantPrice: minPrice,
       maxVariantPrice: maxPrice,
@@ -269,9 +298,8 @@ async function fetchFourthwallProducts(): Promise<Product[]> {
   }
 
   try {
-    const res = await fetch(`${apiUrl}/products`, {
+    const res = await fetch(`${apiUrl}/collections/all/products?storefront_token=${storefrontToken}`, {
       headers: {
-        'X-Storefront-Token': storefrontToken,
         'Accept': 'application/json',
       },
       next: { revalidate: 60 },

@@ -20,6 +20,14 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'fourthwall.com',
       },
+      {
+        protocol: 'https',
+        hostname: '*.fourthwall.dev',
+      },
+      {
+        protocol: 'https',
+        hostname: 'fourthwall.dev',
+      },
     ],
   },
 };
