@@ -73,8 +73,8 @@ export default function AdminProviderSwitch({
           </div>
           <p className="text-gray-300 leading-relaxed text-xs md:text-sm">
             {currentProvider === 'shopify' 
-              ? 'Obtain your own product, use Shopify to track your inventory, process payments, and collects, files, and pays any taxes due on your behalf. You take care of the order fulfillment with a handy label your print off from that address Shopify collects during checkout.'
-              : 'Fourthwall produces the product from your design, processes the payment, and takes care of all the shipping. Since they are the "merchant of record" the tax liability belongs to them, not you. You just get the profit.'
+              ? 'Obtain your own product, use Shopify to track your inventory, process payments, and collect, file, and pay any taxes due on your behalf. You take care of the order fulfillment with a handy label you print off with your customer's address collected by Shopify at checkout.'
+              : 'Fourthwall produces the product from your design, processes the payment, and takes care of all the shipping. Since they are the "merchant of record", the tax liability belongs to them, not you. You just get the profit.'
             }
           </p>
         </div>
