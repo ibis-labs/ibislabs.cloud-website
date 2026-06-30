@@ -15,7 +15,7 @@ export default function AdminProviderSwitch({
 }: AdminProviderSwitchProps) {
   return (
     <div className="w-full max-w-4xl mx-auto mb-10 p-6 bg-black/80 border border-cyber-cyan/30 rounded-lg shadow-[0_0_25px_rgba(0,255,255,0.1)] backdrop-blur-md">
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-b border-gray-800 pb-5 mb-5">
+      <div className="flex flex-col items-start gap-6 border-b border-gray-800 pb-5 mb-5">
         <div>
           <div className="flex items-center gap-2">
             <span className="inline-block w-2 h-2 rounded-full bg-cyber-cyan animate-pulse shadow-[0_0_8px_rgba(0,255,255,0.8)]" />
@@ -29,19 +29,7 @@ export default function AdminProviderSwitch({
         </div>
 
         {/* Sliding Toggle Switch */}
-        <div className="relative flex items-center bg-gray-950 p-1.5 rounded-full border border-gray-800 w-full md:w-80 justify-between select-none">
-          {/* Sliding Highlight Indicator */}
-          <motion.div
-            layout
-            transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-            className="absolute top-1.5 bottom-1.5 left-1.5 rounded-full border-2 border-cyber-cyan shadow-[0_0_12px_rgba(0,255,255,0.4)] pointer-events-none"
-            style={{
-              width: 'calc(50% - 12px)',
-              x: currentProvider === 'shopify' ? 0 : '100%',
-              marginLeft: currentProvider === 'shopify' ? '4px' : '8px',
-            }}
-          />
-
+        <div className="relative flex items-center bg-gray-950 p-1.5 rounded-full border border-gray-800 w-full max-w-xs justify-between select-none">
           <button
             type="button"
             onClick={() => onProviderChange('shopify')}
@@ -50,6 +38,13 @@ export default function AdminProviderSwitch({
             }`}
           >
             Shopify
+            {currentProvider === 'shopify' && (
+              <motion.div
+                layoutId="activeProviderIndicator"
+                className="absolute inset-0 rounded-full border-2 border-cyber-cyan shadow-[0_0_12px_rgba(0,255,255,0.4)] pointer-events-none"
+                transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+              />
+            )}
           </button>
           
           <button
@@ -60,6 +55,13 @@ export default function AdminProviderSwitch({
             }`}
           >
             Fourthwall
+            {currentProvider === 'fourthwall' && (
+              <motion.div
+                layoutId="activeProviderIndicator"
+                className="absolute inset-0 rounded-full border-2 border-cyber-cyan shadow-[0_0_12px_rgba(0,255,255,0.4)] pointer-events-none"
+                transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+              />
+            )}
           </button>
         </div>
       </div>
