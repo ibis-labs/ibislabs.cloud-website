@@ -29,7 +29,7 @@ export default function AdminProviderSwitch({
         </div>
 
         {/* Sliding Toggle Switch */}
-        <div className="relative flex items-center bg-gray-950 p-1.5 rounded-full border border-gray-800 w-full max-w-xs justify-between select-none">
+        <div className="relative flex items-center bg-gray-950 p-1.5 rounded-full border border-gray-800 w-full max-w-md justify-between select-none">
           <button
             type="button"
             onClick={() => onProviderChange('shopify')}
@@ -63,6 +63,23 @@ export default function AdminProviderSwitch({
               />
             )}
           </button>
+
+          <button
+            type="button"
+            onClick={() => onProviderChange('stripe')}
+            className={`relative z-10 flex-1 py-1.5 text-center text-xs md:text-sm font-bold tracking-widest uppercase transition-colors duration-300 ${
+              currentProvider === 'stripe' ? 'text-cyber-cyan' : 'text-gray-500 hover:text-gray-300'
+            }`}
+          >
+            Stripe
+            {currentProvider === 'stripe' && (
+              <motion.div
+                layoutId="activeProviderIndicator"
+                className="absolute inset-0 rounded-full border-2 border-cyber-cyan shadow-[0_0_12px_rgba(0,255,255,0.4)] pointer-events-none"
+                transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+              />
+            )}
+          </button>
         </div>
       </div>
 
@@ -71,12 +88,14 @@ export default function AdminProviderSwitch({
         <div className="p-4 bg-black/60 border border-gray-900 rounded-lg">
           <span className="text-gray-500 uppercase block font-mono text-[9px] mb-1.5 tracking-wider">Fulfillment Model</span>
           <div className="text-white font-bold text-sm mb-2">
-            {currentProvider === 'shopify' ? 'Manual Bulk Self-Fulfillment' : 'Automated Merchant of Record'}
+            {currentProvider === 'shopify' ? 'Manual Bulk Self-Fulfillment' : currentProvider === 'fourthwall' ? 'Automated Merchant of Record' : 'Direct Stripe Checkout Session'}
           </div>
           <p className="text-gray-300 leading-relaxed text-xs md:text-sm">
             {currentProvider === 'shopify' 
               ? "Obtain your own product, use Shopify to track your inventory, process payments, and collect, file, and pay any taxes due on your behalf. You take care of the order fulfillment with a handy label you print off with your customer's address collected by Shopify at checkout."
-              : 'Fourthwall produces the product from your design, processes the payment, and takes care of all the shipping. Since they are the "merchant of record", the tax liability belongs to them, not you. You just get the profit.'
+              : currentProvider === 'fourthwall'
+              ? 'Fourthwall produces the product from your design, processes the payment, and takes care of all the shipping. Since they are the "merchant of record", the tax liability belongs to them, not you. You just get the profit.'
+              : 'Direct checkout via Stripe Checkout Session. Standard payment integration bypassing any third-party commerce platform. Perfect for custom services, digital goods, and direct client invoicing.'
             }
           </p>
         </div>

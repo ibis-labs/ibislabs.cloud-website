@@ -1,4 +1,4 @@
-export type EcommerceProvider = 'shopify' | 'fourthwall';
+export type EcommerceProvider = 'shopify' | 'fourthwall' | 'stripe';
 
 export interface ProductImage {
   id: string;

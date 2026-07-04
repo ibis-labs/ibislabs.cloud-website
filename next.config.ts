@@ -28,6 +28,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'fourthwall.dev',
       },
+      {
+        protocol: 'https',
+        hostname: 'files.stripe.com',
+      },
     ],
   },
 };

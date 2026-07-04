@@ -218,70 +218,21 @@ function normalizeFourthwallProduct(raw: FourthwallProduct): Product {
 // ==========================================
 
 async function fetchShopifyProducts(): Promise<Product[]> {
-  const { domain, storefrontAccessToken, apiVersion } = ecommerceConfig.shopify;
-  
-  if (!domain || !storefrontAccessToken) {
-    console.warn('[Shopify] Missing credentials, returning mock/fallback data');
-    return getFallbackProducts('shopify');
-  }
-
-  const query = `
-    query getProducts {
-      products(first: 20) {
-        edges {
-          node {
-            id
-            handle
-            title
-            description
-            descriptionHtml
-            tags
-            priceRange {
-              minVariantPrice { amount currencyCode }
-              maxVariantPrice { amount currencyCode }
-            }
-            images(first: 5) {
-              edges {
-                node { url altText width height }
-              }
-            }
-            variants(first: 10) {
-              edges {
-                node {
-                  id
-                  title
-                  price { amount currencyCode }
-                  availableForSale
-                  sku
-                  image { url altText }
-                  selectedOptions { name value }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `;
-
   try {
-    const res = await fetch(`https://${domain}/api/${apiVersion}/graphql.json`, {
-      method: 'POST',
+    const origin = typeof window !== 'undefined' ? window.location.origin : '';
+    const res = await fetch(`${origin}/api/products?provider=shopify`, {
       headers: {
-        'Content-Type': 'application/json',
-        'X-Shopify-Storefront-Access-Token': storefrontAccessToken,
+        'Accept': 'application/json',
       },
-      body: JSON.stringify({ query }),
-      next: { revalidate: 60 }, // ISR / caching in Next.js
     });
 
-    const json = await res.json();
-    if (json.errors) {
-      console.error('[Shopify GraphQL Errors]:', json.errors);
+    if (!res.ok) {
+      console.warn('[Shopify Proxy] Fetch failed, returning mock/fallback data');
       return getFallbackProducts('shopify');
     }
 
-    const edges: { node: ShopifyProductNode }[] = json.data?.products?.edges || [];
+    const data = await res.json();
+    const edges: { node: ShopifyProductNode }[] = data.products?.edges || [];
     return edges.map((e) => normalizeShopifyProduct(e.node));
   } catch (err) {
     console.error('[Shopify Fetch Failed]:', err);
@@ -319,6 +270,65 @@ async function fetchFourthwallProducts(): Promise<Product[]> {
   }
 }
 
+function normalizeStripeProduct(raw: any): Product {
+  const defaultPrice = raw.default_price;
+  const priceAmount = defaultPrice ? defaultPrice.unit_amount / 100 : 0;
+  const currencyCode = defaultPrice ? defaultPrice.currency.toUpperCase() : 'USD';
+
+  const images = (raw.images || []).map((url: string, idx: number) => ({
+    id: `stripe-img-${raw.id}-${idx}`,
+    url,
+    altText: raw.name,
+  }));
+
+  const variants = defaultPrice ? [{
+    id: defaultPrice.id,
+    title: raw.name,
+    price: priceAmount,
+    currencyCode,
+    availableForSale: raw.active,
+  }] : [];
+
+  return {
+    id: raw.id,
+    handle: raw.id,
+    title: raw.name,
+    description: raw.description || '',
+    priceRange: {
+      minVariantPrice: priceAmount,
+      maxVariantPrice: priceAmount,
+      currencyCode,
+    },
+    images,
+    variants,
+    inStock: raw.active,
+    tags: ['stripe'],
+    provider: 'stripe',
+  };
+}
+
+async function fetchStripeProducts(): Promise<Product[]> {
+  try {
+    const origin = typeof window !== 'undefined' ? window.location.origin : '';
+    const res = await fetch(`${origin}/api/products`, {
+      headers: {
+        'Accept': 'application/json',
+      },
+    });
+
+    if (!res.ok) {
+      console.error(`[Stripe Products API Error]: ${res.status} ${res.statusText}`);
+      return [];
+    }
+
+    const data = await res.json();
+    return data.map(normalizeStripeProduct);
+  } catch (err) {
+    console.error('[Stripe Products Fetch Failed]:', err);
+    return [];
+  }
+}
+
 // ==========================================
 // UNIFIED ABSTRACTED SERVICE
 // ==========================================
@@ -328,6 +338,8 @@ export async function getProducts(providerOverride?: EcommerceProvider | null): 
   
   if (activeProvider === 'fourthwall') {
     return fetchFourthwallProducts();
+  } else if (activeProvider === 'stripe') {
+    return fetchStripeProducts();
   }
 
   return fetchShopifyProducts();

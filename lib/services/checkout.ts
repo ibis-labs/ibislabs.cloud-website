@@ -10,61 +10,33 @@ export interface CartItem {
  * Modern Shopify Headless Checkout via Storefront API cartCreate mutation
  */
 async function handleShopifyCheckout(items: CartItem[]): Promise<string> {
-  const { domain, storefrontAccessToken, apiVersion } = ecommerceConfig.shopify;
-
-  if (!domain || !storefrontAccessToken) {
-    console.warn('[Shopify Checkout] Missing API credentials in .env.local. Demo redirect.');
-    return `https://${domain || 'checkout.shopify.com'}/cart`;
-  }
-
-  // Format line items for Shopify Storefront API GraphQL
-  const linesFormatted = items
-    .map((item) => `{ merchandiseId: "${item.variantId}", quantity: ${item.quantity} }`)
-    .join(',');
-
-  const query = `
-    mutation cartCreate {
-      cartCreate(input: { lines: [${linesFormatted}] }) {
-        cart {
-          id
-          checkoutUrl
-        }
-        userErrors {
-          field
-          message
-        }
-      }
-    }
-  `;
-
   try {
-    const res = await fetch(`https://${domain}/api/${apiVersion}/graphql.json`, {
+    const res = await fetch('/api/checkout', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-Shopify-Storefront-Access-Token': storefrontAccessToken,
       },
-      body: JSON.stringify({ query }),
+      body: JSON.stringify({
+        provider: 'shopify',
+        items,
+      }),
     });
 
-    const json = await res.json();
-    const checkoutUrl = json.data?.cartCreate?.cart?.checkoutUrl;
-    
-    if (checkoutUrl) {
-      return checkoutUrl;
-    }
-    
-    if (json.data?.cartCreate?.userErrors?.length > 0) {
-      console.warn('[Shopify Cart UserErrors]:', json.data.cartCreate.userErrors);
+    if (!res.ok) {
+      throw new Error('Failed to generate Shopify checkout URL from server');
     }
 
-    throw new Error(json.errors?.[0]?.message || 'Could not generate Shopify cart session.');
+    const data = await res.json();
+    if (data.url) {
+      return data.url;
+    }
+    throw new Error(data.error || 'No checkout URL returned from server');
   } catch (err) {
-    console.error('[Shopify Headless Checkout Notice]:', err);
-    
-    // Fallback for mock/demo IDs during development
+    console.error('[Shopify Headless Checkout Error]:', err);
+    // Fallback URL formatting for local testing if server fails
+    const { domain } = ecommerceConfig.shopify;
     const cartParams = items.map((i) => `${i.variantId}:${i.quantity}`).join(',');
-    return `https://${domain}/cart/${cartParams}`;
+    return `https://${domain || 'checkout.shopify.com'}/cart/${cartParams}`;
   }
 }
 

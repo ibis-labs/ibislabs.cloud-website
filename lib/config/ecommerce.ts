@@ -4,12 +4,12 @@ import { EcommerceProvider } from '../types/ecommerce';
  * Global E-commerce Strategy Configuration
  */
 export const ecommerceConfig = {
-  // Default provider: 'shopify' | 'fourthwall'
+  // Default provider: 'shopify' | 'fourthwall' | 'stripe'
   defaultProvider: (process.env.NEXT_PUBLIC_ECOMMERCE_PROVIDER as EcommerceProvider) || 'shopify',
   
   // Shopify Configuration
   shopify: {
-    domain: process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN || '',
+    domain: process.env.SHOPIFY_STORE_DOMAIN || process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN || '',
     storefrontAccessToken: process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN || process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN || '',
     apiVersion: process.env.NEXT_PUBLIC_SHOPIFY_API_VERSION || '2024-01',
   },

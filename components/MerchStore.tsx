@@ -16,6 +16,8 @@ export default function MerchStore() {
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
   const [selectedVariants, setSelectedVariants] = useState<Record<string, string>>({});
   const [isCheckingOut, setIsCheckingOut] = useState<boolean>(false);
+  const [pinInput, setPinInput] = useState<string>('');
+  const isPinVerified = pinInput === '0510';
 
   // Load products when provider changes
   useEffect(() => {
@@ -92,6 +94,33 @@ export default function MerchStore() {
     }
   };
 
+  const handleStripeCheckout = async (priceId?: string) => {
+    setIsCheckingOut(true);
+    try {
+      const res = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ priceId }),
+      });
+      if (!res.ok) {
+        throw new Error('Failed to initiate Stripe checkout');
+      }
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        throw new Error('No checkout URL returned');
+      }
+    } catch (err) {
+      console.error('Stripe Checkout error:', err);
+      alert('Failed to initialize Stripe checkout. Please try again.');
+    } finally {
+      setIsCheckingOut(false);
+    }
+  };
+
   const totalCartItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   const cartSubtotal = cart.reduce((sum, item) => sum + item.variant.price * item.quantity, 0);
 
@@ -111,19 +140,46 @@ export default function MerchStore() {
           </p>
         </div>
 
-        <button
-          type="button"
-          onClick={() => setIsCartOpen(true)}
-          className="relative px-4 py-2 bg-black border border-cyber-cyan text-cyber-cyan rounded flex items-center gap-2 hover:bg-cyber-cyan hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(0,255,255,0.2)]"
-        >
-          <span className="uppercase tracking-wider text-xs md:text-sm font-semibold">Cart</span>
-          {totalCartItems > 0 && (
-            <span className="w-5 h-5 rounded-full bg-cyber-cyan text-black text-xs font-bold flex items-center justify-center">
-              {totalCartItems}
-            </span>
-          )}
-        </button>
+        {provider !== 'stripe' && (
+          <button
+            type="button"
+            onClick={() => setIsCartOpen(true)}
+            className="relative px-4 py-2 bg-black border border-cyber-cyan text-cyber-cyan rounded flex items-center gap-2 hover:bg-cyber-cyan hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(0,255,255,0.2)]"
+          >
+            <span className="uppercase tracking-wider text-xs md:text-sm font-semibold">Cart</span>
+            {totalCartItems > 0 && (
+              <span className="w-5 h-5 rounded-full bg-cyber-cyan text-black text-xs font-bold flex items-center justify-center">
+                {totalCartItems}
+              </span>
+            )}
+          </button>
+        )}
       </div>
+
+      {/* Warning & PIN Input for Sandbox Providers */}
+      {(provider === 'shopify' || provider === 'stripe') && (
+        <div className="mb-8 p-4 bg-yellow-950/20 border border-yellow-600/40 rounded-lg text-sm text-yellow-200 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <span className="text-xl">⚠️</span>
+            <div>
+              <p className="font-bold uppercase tracking-wider text-xs text-yellow-500">Demo Environment Notice</p>
+              <p className="text-gray-300 text-xs mt-0.5">These are sandbox/demo products. Please do not complete any actual transactions.</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <label htmlFor="pin-input" className="text-xs uppercase font-mono text-gray-400">Unlock PIN:</label>
+            <input
+              id="pin-input"
+              type="text"
+              maxLength={4}
+              value={pinInput}
+              onChange={(e) => setPinInput(e.target.value)}
+              placeholder="••••"
+              className="w-16 bg-black border border-yellow-600/40 rounded px-2 py-1 text-center font-mono text-yellow-200 focus:outline-none focus:border-yellow-500 transition-colors"
+            />
+          </div>
+        </div>
+      )}
 
       {/* Product Grid */}
       {loading ? (
@@ -230,14 +286,25 @@ export default function MerchStore() {
                       </span>
                     </div>
 
-                    <button
-                      type="button"
-                      onClick={() => handleAddToCart(product)}
-                      disabled={!product.inStock}
-                      className="px-4 py-2 bg-cyber-cyan/10 border border-cyber-cyan text-cyber-cyan hover:bg-cyber-cyan hover:text-black font-semibold text-xs uppercase tracking-wider rounded transition-all duration-300 shadow-[0_0_10px_rgba(0,255,255,0.15)] disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {product.inStock ? 'Add To Cart' : 'Out of Stock'}
-                    </button>
+                    {provider === 'stripe' ? (
+                      <button
+                        type="button"
+                        onClick={() => handleStripeCheckout(activeVariant?.id)}
+                        disabled={isCheckingOut || !product.inStock || !isPinVerified}
+                        className="px-4 py-2 bg-cyber-cyan/10 border border-cyber-cyan text-cyber-cyan hover:bg-cyber-cyan hover:text-black font-semibold text-xs uppercase tracking-wider rounded transition-all duration-300 shadow-[0_0_10px_rgba(0,255,255,0.15)] disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        {!isPinVerified ? 'Locked (PIN)' : isCheckingOut ? 'Redirecting...' : 'Purchase via Stripe'}
+                      </button>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => handleAddToCart(product)}
+                        disabled={!product.inStock}
+                        className="px-4 py-2 bg-cyber-cyan/10 border border-cyber-cyan text-cyber-cyan hover:bg-cyber-cyan hover:text-black font-semibold text-xs uppercase tracking-wider rounded transition-all duration-300 shadow-[0_0_10px_rgba(0,255,255,0.15)] disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        {product.inStock ? 'Add To Cart' : 'Out of Stock'}
+                      </button>
+                    )}
                   </div>
                 </div>
               </motion.div>
@@ -342,10 +409,14 @@ export default function MerchStore() {
                   <button
                     type="button"
                     onClick={handleCheckout}
-                    disabled={isCheckingOut}
+                    disabled={isCheckingOut || (!isPinVerified && provider === 'shopify')}
                     className="w-full py-3 bg-cyber-cyan text-black font-bold uppercase tracking-widest rounded shadow-[0_0_20px_rgba(0,255,255,0.4)] hover:bg-white transition-all duration-300 disabled:opacity-50"
                   >
-                    {isCheckingOut ? 'Initializing Checkout...' : `Proceed to ${provider === 'shopify' ? 'Shopify' : 'Fourthwall'} Checkout`}
+                    {(!isPinVerified && provider === 'shopify')
+                      ? 'Locked (Enter PIN)'
+                      : isCheckingOut
+                      ? 'Initializing Checkout...'
+                      : `Proceed to ${provider === 'shopify' ? 'Shopify' : 'Fourthwall'} Checkout`}
                   </button>
                 </div>
               )}
