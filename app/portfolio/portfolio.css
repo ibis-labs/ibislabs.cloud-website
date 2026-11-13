@@ -1,0 +1,336 @@
+/* ==========================================================================
+   Ibis Labs LLC — Vector & Motion Portfolio Stylesheet
+   Scoped to preserve ibislabs.cloud --cyber-cyan (#1faafe) & Orbitron theme.
+   ========================================================================== */
+
+/* ── Monument / Obelisk Floating ────────────────────────────────────────── */
+@keyframes obelisk-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-3px); }
+}
+
+.animate-float-slow {
+  animation: obelisk-float 10s ease-in-out infinite;
+}
+
+.obelisk-shaft-transition {
+  transition: stroke 2s ease-in-out, fill 2s ease-in-out;
+}
+
+.obelisk-capstone-glow {
+  filter: drop-shadow(0 0 8px currentColor);
+  transition: fill 1s ease, filter 1s ease, stroke 1s ease;
+}
+
+.obelisk-hero-orbit {
+  transform-origin: 27.1px 261.5px;
+}
+
+.obelisk-key-group {
+  outline: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+.obelisk-key-label {
+  opacity: 0.3;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+/* ── Neon Relic Glows ───────────────────────────────────────────────────── */
+@keyframes pulse-glow-cyan {
+  0%, 100% {
+    opacity: 0.75;
+    stroke: #1faafe;
+  }
+  50% {
+    opacity: 1;
+    stroke: #22d3ee;
+    filter: drop-shadow(0 0 8px rgba(31, 170, 254, 0.7));
+  }
+}
+
+@keyframes pulse-purple {
+  0%, 100% { filter: drop-shadow(0 0 10px rgba(185, 21, 204, 0.65)); }
+  50%      { filter: drop-shadow(0 0 28px rgba(185, 21, 204, 0.95)); }
+}
+
+.animate-pulse-glow-cyan {
+  animation: pulse-glow-cyan 3s ease-in-out infinite;
+}
+
+.animate-pulse-purple {
+  animation: pulse-purple 6s ease-in-out infinite;
+}
+
+/* ── Khepri Scarab Color Cycle & Substrate ──────────────────────────────── */
+@keyframes khepriColorCycle {
+  0%   { color: #001eff; }
+  20%  { color: #b915cc; }
+  40%  { color: #ff3131; }
+  60%  { color: #1faafe; }
+  80%  { color: #39ff14; }
+  100% { color: #001eff; }
+}
+
+.khepri-root {
+  overflow: visible;
+}
+
+.khepri-color-cycle {
+  animation: khepriColorCycle 8s linear infinite;
+}
+
+.khepri-force-gold {
+  color: #ffd700 !important;
+  animation: none !important;
+}
+
+.khepri-substrate-cobalt {
+  filter: drop-shadow(0 0 6px #001eff);
+  transition: stroke 1s ease-in-out, filter 1s ease-in-out;
+}
+
+.khepri-substrate-gold {
+  filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.65));
+  transition: stroke 1s ease-in-out, filter 1s ease-in-out;
+}
+
+.khepri-orb {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: fill 0.8s ease;
+}
+
+.khepri-stroke {
+  stroke-width: 0.35px;
+}
+
+.khepri-liturgy-text {
+  color: #d946ef;
+}
+
+/* ── Portfolio Showcase Card & Interactive Controls (Matched to Main Page) ─ */
+.thoth-showcase-card {
+  position: relative;
+  border-radius: 0.5rem;
+  border: 1px solid var(--cyber-cyan);
+  background: rgba(0, 0, 0, 0.72);
+  box-shadow: 0 0 36px -10px rgba(31, 170, 254, 0.22);
+  padding: 1.5rem;
+  color: #e0e0e0;
+}
+
+.thoth-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 0.25rem;
+  border: 1px solid rgba(31, 170, 254, 0.4);
+  background: rgba(0, 0, 0, 0.85);
+  color: #d1d5db;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.thoth-btn:hover {
+  border-color: var(--cyber-cyan);
+  color: var(--cyber-cyan);
+  box-shadow: 0 0 14px rgba(31, 170, 254, 0.32);
+}
+
+.thoth-btn-active {
+  border-color: var(--cyber-cyan);
+  background: rgba(31, 170, 254, 0.16);
+  color: var(--cyber-cyan);
+  box-shadow: 0 0 16px rgba(31, 170, 254, 0.32);
+}
+
+.thoth-btn-gold {
+  border-color: rgba(250, 204, 21, 0.5);
+  color: #fde047;
+}
+
+.thoth-btn-gold:hover,
+.thoth-btn-gold-active {
+  border-color: #facc15;
+  background: rgba(250, 204, 21, 0.15);
+  color: #fef08a;
+  box-shadow: 0 0 16px rgba(250, 204, 21, 0.35);
+}
+
+.thoth-btn-purple {
+  border-color: rgba(217, 70, 239, 0.5);
+  color: #e879f9;
+}
+
+.thoth-btn-purple:hover,
+.thoth-btn-purple-active {
+  border-color: #e879f9;
+  background: rgba(185, 21, 204, 0.2);
+  color: #f5d0fe;
+  box-shadow: 0 0 16px rgba(185, 21, 204, 0.38);
+}
+
+/* ── Neheh-Circuit Showcase Toggle States ───────────────────────────────── */
+.nhc-toggle-active {
+  background: rgba(57, 255, 20, 0.12);
+  color: #39ff14;
+  border-color: #39ff14;
+}
+
+.nhc-toggle-missed {
+  background: rgba(248, 113, 113, 0.12);
+  color: #f87171;
+  border-color: #f87171;
+}
+
+.nhc-toggle-unlit {
+  background: rgba(15, 23, 42, 0.7);
+  color: #64748b;
+  border-color: #1f2937;
+}
+
+.nhc-toggle-iris-on {
+  background: rgba(192, 132, 252, 0.15);
+  color: #c084fc;
+  border-color: #c084fc;
+}
+
+.nhc-toggle-outer-on {
+  background: rgba(248, 113, 113, 0.12);
+  color: #f87171;
+  border-color: #f87171;
+}
+
+.nhc-toggle-outermost-on {
+  background: rgba(31, 170, 254, 0.15);
+  color: #1faafe;
+  border-color: #1faafe;
+}
+
+.nhc-dot {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+.nhc-dot-lime   { background: #39ff14; box-shadow: 0 0 6px #39ff14; }
+.nhc-dot-red    { background: #f87171; box-shadow: 0 0 6px #f87171; }
+.nhc-dot-purple { background: #c084fc; box-shadow: 0 0 6px #c084fc; }
+.nhc-dot-cyan   { background: #1faafe; box-shadow: 0 0 6px #1faafe; }
+.nhc-dot-amber  { background: #f59e0b; box-shadow: 0 0 6px #f59e0b; }
+.nhc-dot-violet { background: #a855f7; box-shadow: 0 0 6px #a855f7; }
+
+/* ── Shen Ring & Nedjem Bastet Transitions ──────────────────────────────── */
+.shen-arc-transition {
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.8s ease;
+}
+
+.shen-tick-transition {
+  transition: stroke 0.6s ease;
+}
+
+.shen-text-transition {
+  transition: fill 0.8s ease;
+}
+
+.bastet-darken {
+  mix-blend-mode: darken;
+}
+
+/* ── Seshat Chronometer Stage ───────────────────────────────────────────── */
+.seshat-chronometer-svg {
+  width: 100%;
+  max-width: 24rem;
+  height: auto;
+  color: #b915cc;
+}
+
+.seshat-chronometer-svg-flat {
+  width: 100%;
+  max-width: 24rem;
+  height: auto;
+  color: #b915cc;
+}
+
+.seshat-chronometer-svg svg,
+.seshat-chronometer-svg-flat svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Vector Vault Ink Accent Themes (Zero Inline Styles) ────────────────── */
+.vault-ink-cyan {
+  color: #1faafe;
+}
+.vault-ink-cyan svg {
+  filter: drop-shadow(0 0 8px rgba(31, 170, 254, 0.45));
+}
+
+.vault-ink-gold {
+  color: #ffd700;
+}
+.vault-ink-gold svg {
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.45));
+}
+
+.vault-ink-purple {
+  color: #d946ef;
+}
+.vault-ink-purple svg {
+  filter: drop-shadow(0 0 8px rgba(217, 70, 239, 0.48));
+}
+
+.vault-ink-red {
+  color: #ff3b3b;
+}
+.vault-ink-red svg {
+  filter: drop-shadow(0 0 8px rgba(255, 59, 59, 0.45));
+}
+
+.vault-ink-lime {
+  color: #39ff14;
+}
+.vault-ink-lime svg {
+  filter: drop-shadow(0 0 8px rgba(57, 255, 20, 0.42));
+}
+
+.vault-stage-papyrus {
+  background-color: #f3ead8;
+  border-color: rgba(146, 116, 68, 0.5);
+}
+
+.vault-stage-papyrus svg,
+.vault-stage-papyrus img {
+  filter: none;
+}
+
+.vault-inline-svg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vault-inline-svg svg {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+}
+

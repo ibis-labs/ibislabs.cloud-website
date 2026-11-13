@@ -1,0 +1,316 @@
+/* ==========================================================================
+   Thoth's Notebook — Portable Portfolio Styles & Keyframes
+   Import once in your app entry (e.g. App.tsx, layout.tsx, or global CSS).
+   ========================================================================== */
+
+:root {
+  --duamutef-red: #ff0000;
+  --cyber-cyan: #00ffff;
+  --ankh-gold: #ffc000;
+  --moon-silver: #c0c0c0;
+  --thoth-purple: #b915cc;
+  --neon-lime: #39ff14;
+  --obsidian-void: #050508;
+}
+
+/* ── Monument / Obelisk Floating ────────────────────────────────────────── */
+@keyframes obelisk-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-3px); }
+}
+
+.animate-float-slow {
+  animation: obelisk-float 10s ease-in-out infinite;
+}
+
+.obelisk-shaft-transition {
+  transition: stroke 2s ease-in-out, fill 2s ease-in-out;
+}
+
+.obelisk-capstone-glow {
+  filter: drop-shadow(0 0 8px currentColor);
+  transition: fill 1s ease, filter 1s ease, stroke 1s ease;
+}
+
+.obelisk-hero-orbit {
+  transform-origin: 27.1px 261.5px;
+}
+
+.obelisk-key-group {
+  outline: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+.obelisk-key-label {
+  opacity: 0.3;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+/* ── Neon Relic Glows (Duamutef / Seshat / Thoth) ───────────────────────── */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    filter: brightness(1.15) drop-shadow(0 0 14px rgba(251, 191, 36, 0.55));
+  }
+  50% {
+    opacity: 0.82;
+    filter: brightness(0.85) drop-shadow(0 0 5px rgba(251, 191, 36, 0.2));
+  }
+}
+
+@keyframes pulse-glow-cyan {
+  0%, 100% {
+    opacity: 0.7;
+    stroke: #00ffff;
+  }
+  50% {
+    opacity: 1;
+    stroke: #22d3ee;
+    filter: drop-shadow(0 0 6px rgba(0, 255, 255, 0.65));
+  }
+}
+
+@keyframes pulse-purple {
+  0%, 100% { filter: drop-shadow(0 0 10px #b915cc); }
+  50%      { filter: drop-shadow(0 0 30px #b915cc); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-pulse-glow-cyan {
+  animation: pulse-glow-cyan 3s ease-in-out infinite;
+}
+
+.animate-pulse-purple {
+  animation: pulse-purple 6s ease-in-out infinite;
+}
+
+/* ── Khepri Scarab Color Cycle & Substrate ──────────────────────────────── */
+@keyframes khepriColorCycle {
+  0%   { color: #001eff; }
+  20%  { color: #b915cc; }
+  40%  { color: #ff3131; }
+  60%  { color: #00ffff; }
+  80%  { color: #39ff14; }
+  100% { color: #001eff; }
+}
+
+.khepri-root {
+  overflow: visible;
+}
+
+.khepri-color-cycle {
+  animation: khepriColorCycle 8s linear infinite;
+}
+
+.khepri-force-gold {
+  color: #ffd700 !important;
+  animation: none !important;
+}
+
+.khepri-substrate-cobalt {
+  filter: drop-shadow(0 0 5px #001eff);
+  transition: stroke 1s ease-in-out, filter 1s ease-in-out;
+}
+
+.khepri-substrate-gold {
+  filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.55));
+  transition: stroke 1s ease-in-out, filter 1s ease-in-out;
+}
+
+.khepri-orb {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: fill 0.8s ease;
+}
+
+.khepri-stroke {
+  stroke-width: 0.35px;
+}
+
+.khepri-liturgy-text {
+  color: hsl(280, 100%, 62%);
+}
+
+/* ── Khonsu / Cyber Moon Timer Glitch & Digits ──────────────────────────── */
+@keyframes glitch-shake {
+  0%   { transform: translate(0); }
+  20%  { transform: translate(-2px, 1px); }
+  40%  { transform: translate(-2px, -1px); }
+  60%  { transform: translate(2px, 1px); }
+  80%  { transform: translate(2px, -1px); }
+  100% { transform: translate(0); }
+}
+
+.glitch-active {
+  animation: glitch-shake 0.15s infinite;
+  filter: brightness(2) contrast(1.5) blur(0.5px);
+}
+
+.khonsu-digit-tall {
+  transform: scaleY(1.55);
+}
+
+/* ── Hieroglyph Scramble Reveal ─────────────────────────────────────────── */
+.thoth-scramble-backdrop {
+  background: radial-gradient(ellipse at 50% 40%, rgba(8, 2, 40, 0.97) 0%, rgba(0, 0, 0, 0.99) 100%);
+}
+
+.thoth-scanline-overlay {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(34, 211, 238, 0.35) 2px,
+    rgba(34, 211, 238, 0.35) 3px
+  );
+}
+
+.thoth-corner-tl { top: 10%; left: 7%; }
+.thoth-corner-tr { top: 10%; right: 7%; }
+.thoth-corner-bl { bottom: 10%; left: 7%; }
+.thoth-corner-br { bottom: 10%; right: 7%; }
+
+/* ── Portfolio Showcase Card & Interactive Controls ─────────────────────── */
+.thoth-showcase-card {
+  position: relative;
+  border-radius: 1rem;
+  border: 1px solid rgba(34, 211, 238, 0.22);
+  background: rgba(4, 7, 14, 0.92);
+  box-shadow: 0 0 50px rgba(34, 211, 238, 0.08);
+  padding: 1.5rem;
+  color: #f1f5f9;
+}
+
+.thoth-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(51, 65, 85, 0.85);
+  background: rgba(9, 13, 22, 0.9);
+  color: #94a3b8;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.thoth-btn:hover {
+  border-color: #22d3ee;
+  color: #22d3ee;
+  box-shadow: 0 0 14px rgba(34, 211, 238, 0.25);
+}
+
+.thoth-btn-active {
+  border-color: #22d3ee;
+  background: rgba(34, 211, 238, 0.14);
+  color: #22d3ee;
+  box-shadow: 0 0 16px rgba(34, 211, 238, 0.25);
+}
+
+.thoth-btn-purple {
+  border-color: rgba(185, 21, 204, 0.55);
+  color: #e879f9;
+}
+
+.thoth-btn-purple:hover {
+  border-color: #e879f9;
+  background: rgba(185, 21, 204, 0.18);
+  color: #f5d0fe;
+  box-shadow: 0 0 16px rgba(185, 21, 204, 0.35);
+}
+
+/* Neheh-Circuit Showcase Toggle States */
+.nhc-toggle-active {
+  background: rgba(57, 255, 20, 0.12);
+  color: #39ff14;
+  border-color: #39ff14;
+}
+
+.nhc-toggle-missed {
+  background: rgba(248, 113, 113, 0.12);
+  color: #f87171;
+  border-color: #f87171;
+}
+
+.nhc-toggle-unlit {
+  background: rgba(15, 23, 42, 0.7);
+  color: #475569;
+  border-color: #1e293b;
+}
+
+.nhc-toggle-iris-on {
+  background: rgba(192, 132, 252, 0.15);
+  color: #c084fc;
+  border-color: #c084fc;
+}
+
+.nhc-toggle-outer-on {
+  background: rgba(248, 113, 113, 0.12);
+  color: #f87171;
+  border-color: #f87171;
+}
+
+.nhc-toggle-outermost-on {
+  background: rgba(34, 211, 238, 0.12);
+  color: #22d3ee;
+  border-color: #22d3ee;
+}
+
+.nhc-dot {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+.nhc-dot-lime   { background: #39ff14; box-shadow: 0 0 6px #39ff14; }
+.nhc-dot-red    { background: #f87171; box-shadow: 0 0 6px #f87171; }
+.nhc-dot-purple { background: #c084fc; box-shadow: 0 0 6px #c084fc; }
+.nhc-dot-cyan   { background: #22d3ee; box-shadow: 0 0 6px #22d3ee; }
+.nhc-dot-amber  { background: #f59e0b; box-shadow: 0 0 6px #f59e0b; }
+.nhc-dot-violet { background: #a855f7; box-shadow: 0 0 6px #a855f7; }
+
+/* ── Shen Ring & Nedjem Bastet Transitions / Blend ──────────────────────── */
+.shen-arc-transition {
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.8s ease;
+}
+
+.shen-tick-transition {
+  transition: stroke 0.6s ease;
+}
+
+.shen-text-transition {
+  transition: fill 0.8s ease;
+}
+
+.bastet-darken {
+  mix-blend-mode: darken;
+}
+
+/* ── Seshat Chronometer Container & Staggered Palm-Rib Ripple ───────────── */
+.seshat-chronometer-svg {
+  width: 100%;
+  max-width: 28rem;
+  height: auto;
+  color: #b915cc;
+  filter: drop-shadow(0 0 25px rgba(185, 21, 204, 0.35));
+}
+
+.seshat-chronometer-svg svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}

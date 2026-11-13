@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 44" fill="none" color="#00FFFF">
+  <defs>
+    <filter id="lunar-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#lunar-glow)">
+    <g transform="translate(8,10)"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.55" /></g>
+    <g transform="translate(42,10) rotate(30 12 12)"><path d="M12 2 A10 10 0 1 1 12 22 A8 10 0 1 0 12 2 Z" fill="currentColor" /></g>
+    <g transform="translate(76,10)"><path d="M12 2 V22 A10 10 0 0 0 12 2 Z" fill="currentColor" /></g>
+    <g transform="translate(110,10)"><path d="M12 2 A10 10 0 0 1 12 22 A4 10 0 0 1 12 2 Z" fill="currentColor" /></g>
+    <g transform="translate(144,10)"><circle cx="12" cy="12" r="10" fill="currentColor" /></g>
+    <g transform="translate(178,10)"><path d="M12 2 A10 10 0 0 0 12 22 A4 10 0 0 0 12 2 Z" fill="currentColor" /></g>
+    <g transform="translate(212,10)"><path d="M12 2 V22 A10 10 0 0 1 12 2 Z" fill="currentColor" /></g>
+    <g transform="translate(246,10) rotate(-30 12 12)"><path d="M12 2 A10 10 0 1 0 12 22 A8 10 0 1 1 12 2 Z" fill="currentColor" /></g>
+  </g>
+</svg>

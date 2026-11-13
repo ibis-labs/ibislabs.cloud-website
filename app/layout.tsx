@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Orbitron } from "next/font/google";
+import SiteHeader from "@/components/SiteHeader";
 import "./globals.css";
 
 const orbitron = Orbitron({
@@ -47,6 +48,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${orbitron.className} antialiased bg-black text-white`}>
+        <SiteHeader />
         {children}
       </body>
     </html>

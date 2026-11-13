@@ -65,7 +65,7 @@ export default function Home() {
       </section>
 
       {/* --- PROJECTS SECTION --- */}
-      <section className="w-full max-w-5xl">
+      <section id="products" className="w-full max-w-5xl scroll-mt-24">
         <h3 className="text-center text-gray-200 mb-8 uppercase tracking-widest text-lg md:text-xl">Current Product Lineup</h3>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -174,6 +174,100 @@ export default function Home() {
         </div>
       </section>
 
+      {/* --- VECTOR GRAPHICS & MOTION PORTFOLIO SECTION --- */}
+      <section id="portfolio-showcase" className="w-full max-w-5xl mt-24 scroll-mt-24">
+        <h3 className="text-center text-gray-200 mb-3 uppercase tracking-widest text-lg md:text-xl">
+          Vector Graphics &amp; Motion Portfolio
+        </h3>
+        <p className="text-center text-gray-400 text-xs sm:text-sm max-w-2xl mx-auto mb-8 leading-relaxed">
+          Original in-house vector artwork, silicon-etched emblems, and interactive SVG instruments custom-crafted by Ibis Labs LLC.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          {/* Khepri Scarab Highlight Card */}
+          <Link
+            href="/portfolio#khepri-scarab"
+            className="group border border-cyber-cyan ring-1 ring-cyber-cyan/40 ring-offset-2 ring-offset-black bg-black/50 p-6 rounded hover:ring-2 hover:ring-cyber-cyan hover:shadow-[0_0_28px_rgba(0,255,255,0.35)] active:scale-[0.98] transition-all duration-200 flex flex-col justify-between"
+          >
+            <div>
+              <div className="flex justify-between items-start mb-4 gap-3">
+                <div className="flex items-center gap-3">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/portfolio-svg/khepri-evening-chronicle.svg"
+                    alt="Khepri Winged Scarab custom vector graphic"
+                    className="w-11 h-11 rounded border border-cyber-cyan/40 bg-black p-1 object-contain"
+                  />
+                  <h4 className="text-lg sm:text-xl text-white group-hover:text-cyber-cyan transition-colors">
+                    Khepri Scarab Etch
+                  </h4>
+                </div>
+                <span className="text-xs border border-cyber-cyan text-cyber-cyan px-2 py-1 rounded shrink-0">
+                  Interactive SVG
+                </span>
+              </div>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Custom winged scarab vector illustration by Ibis Labs LLC featuring an 11-tier symmetrical feather glissando, pearl solar &amp; lunar orbs, and interactive Solar Gold protocol sealing.
+              </p>
+            </div>
+            <div className="mt-4 flex items-center justify-end gap-1 text-xs text-cyber-cyan group-hover:drop-shadow-[0_0_6px_rgba(0,255,255,0.9)] transition-all">
+              <span className="tracking-wider uppercase font-mono">Launch Interactive Exhibit</span>
+              <span>→</span>
+            </div>
+          </Link>
+
+          {/* Seshat Chronometer Highlight Card */}
+          <Link
+            href="/portfolio#seshat-chronometer"
+            className="group border border-cyber-cyan ring-1 ring-cyber-cyan/40 ring-offset-2 ring-offset-black bg-black/50 p-6 rounded hover:ring-2 hover:ring-cyber-cyan hover:shadow-[0_0_28px_rgba(0,255,255,0.35)] active:scale-[0.98] transition-all duration-200 flex flex-col justify-between"
+          >
+            <div>
+              <div className="flex justify-between items-start mb-4 gap-3">
+                <div className="flex items-center gap-3">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/portfolio-svg/seshet-icon.svg"
+                    alt="Seshat Chronometer rosette emblem"
+                    className="w-11 h-11 rounded border border-cyber-cyan/40 bg-black p-2 object-contain"
+                  />
+                  <h4 className="text-lg sm:text-xl text-white group-hover:text-cyber-cyan transition-colors">
+                    Seshat Chronometer
+                  </h4>
+                </div>
+                <span className="text-xs border border-cyber-cyan text-cyber-cyan px-2 py-1 rounded shrink-0">
+                  Live Clock
+                </span>
+              </div>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Custom vector Harp Goddess of Wisdom &amp; Measurement by Ibis Labs LLC with 28 CSS-plucked hair-harp strings, sparkling regalia, and a live 59-bud palm-rib timekeeper.
+              </p>
+            </div>
+            <div className="mt-4 flex items-center justify-end gap-1 text-xs text-cyber-cyan group-hover:drop-shadow-[0_0_6px_rgba(0,255,255,0.9)] transition-all">
+              <span className="tracking-wider uppercase font-mono">Launch Chronometer</span>
+              <span>→</span>
+            </div>
+          </Link>
+        </div>
+
+        {/* Full Portfolio Gateway Banner */}
+        <Link
+          href="/portfolio"
+          className="group border border-cyber-cyan/70 hover:border-cyber-cyan bg-cyber-cyan/5 hover:bg-cyber-cyan/10 p-5 sm:p-6 rounded flex flex-col sm:flex-row items-center justify-between gap-4 hover:shadow-[0_0_28px_rgba(0,255,255,0.28)] transition-all duration-200"
+        >
+          <div className="text-center sm:text-left">
+            <p className="text-xs font-mono text-cyber-cyan uppercase tracking-[0.22em] mb-1">
+              Full Gallery · 6 Interactive Motion Suites + 28 Custom SVG Relics
+            </p>
+            <p className="text-sm text-gray-200">
+              Explore the complete Ibis Labs LLC custom vector graphics vault, silicon chip etches, Shen Ring state matrices, and interactive rituals.
+            </p>
+          </div>
+          <span className="shrink-0 border border-cyber-cyan bg-black px-4 py-2 rounded text-xs text-cyber-cyan uppercase tracking-widest font-mono group-hover:bg-cyber-cyan group-hover:text-black transition-colors">
+            Open Full Portfolio →
+          </span>
+        </Link>
+      </section>
+
       {/* --- LEGAL SECTION --- */}
       <section className="w-full max-w-5xl mt-12">
         <div className="flex flex-wrap justify-center gap-3 text-xs">
@@ -190,7 +284,7 @@ export default function Home() {
       </section>
 
       {/* --- CONTACT SECTION --- */}
-      <section className="w-full max-w-2xl mt-24">
+      <section id="contact" className="w-full max-w-2xl mt-24 scroll-mt-24">
         <h3 className="text-center text-gray-200 mb-8 uppercase tracking-widest text-base">Contact</h3>
         <div className="border border-gray-600 bg-black/50 p-8 rounded grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-white">
           <div className="flex flex-col gap-1">

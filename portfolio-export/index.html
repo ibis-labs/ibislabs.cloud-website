@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thoth's Notebook — Cyber-Egyptian Portfolio Export</title>
+  <link rel="stylesheet" href="gallery.css" />
+</head>
+<body class="theme-cyan">
+  <header class="gallery-hero">
+    <p class="gallery-eyebrow">Portable Portfolio Showcase Bundle</p>
+    <h1 class="gallery-title">Thoth's Notebook Artifacts</h1>
+    <p class="gallery-lead">
+      Self-contained React components (<code>react/</code>), standalone interactive HTML embeds
+      (<code>html-previews/</code>), and 34 custom vector &amp; SMIL/CSS-animated SVG relics (<code>svg/</code>).
+    </p>
+
+    <div class="toolbar-wrap">
+      <div class="toolbar-group">
+        <span class="toolbar-label">Neon Ink</span>
+        <button type="button" data-theme="cyan" class="pill-btn pill-btn-active">Cyan</button>
+        <button type="button" data-theme="gold" class="pill-btn">Ankh Gold</button>
+        <button type="button" data-theme="purple" class="pill-btn">Seshat Purple</button>
+        <button type="button" data-theme="red" class="pill-btn">Duamutef Red</button>
+        <button type="button" data-theme="lime" class="pill-btn">Decan Lime</button>
+      </div>
+
+      <div class="toolbar-group">
+        <button id="canvas-toggle-btn" type="button" class="pill-btn">Backdrop: Obsidian</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="gallery-container">
+    <!-- 1. Interactive Animations -->
+    <section>
+      <div class="section-heading-row">
+        <h2 class="section-title">Interactive Animations &amp; Rituals</h2>
+        <span class="section-meta">8 Standalone HTML Previews + Decoupled React Suites</span>
+      </div>
+      <div id="anim-grid" class="anim-grid"></div>
+    </section>
+
+    <!-- 2. 34 Vector Artwork Gallery -->
+    <section>
+      <div class="section-heading-row">
+        <h2 class="section-title">Vector Graphics &amp; Animated SVGs</h2>
+        <span id="svg-count-meta" class="section-meta">34 Standalone .svg Assets</span>
+      </div>
+
+      <div class="filter-bar">
+        <button type="button" data-filter="all" class="pill-btn pill-btn-active">All 34</button>
+        <button type="button" data-filter="animated" class="pill-btn">Animated SVGs (8)</button>
+        <button type="button" data-filter="deities" class="pill-btn">Deities &amp; Guardians (8)</button>
+        <button type="button" data-filter="monuments" class="pill-btn">Monuments &amp; Circuitry (9)</button>
+        <button type="button" data-filter="glyphs" class="pill-btn">Cyber Glyphs &amp; Icons (9)</button>
+      </div>
+
+      <div id="svg-grid" class="svg-grid"></div>
+    </section>
+  </main>
+
+  <!-- Live Modal Previewer -->
+  <div id="stage-modal" class="stage-modal stage-modal-hidden" role="dialog" aria-modal="true">
+    <div class="stage-modal-dialog">
+      <div class="stage-modal-bar">
+        <span id="stage-modal-title" class="stage-modal-title">Live Preview</span>
+        <button id="stage-close-btn" type="button" class="pill-btn">Close ✕</button>
+      </div>
+      <iframe id="stage-iframe" class="stage-iframe" title="Interactive Animation Preview"></iframe>
+    </div>
+  </div>
+
+  <script src="html-previews/svg-bundle.js"></script>
+  <script src="gallery.js"></script>
+</body>
+</html>
+

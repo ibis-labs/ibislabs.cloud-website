@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neheh-Circuit — Thoth's Notebook Portfolio Piece</title>
+  <link rel="stylesheet" href="previews.css" />
+</head>
+<body data-preview="neheh">
+  <nav class="preview-topbar">
+    <a class="preview-back-link" href="../index.html">← Master Portfolio Gallery</a>
+    <span class="preview-badge">SMIL Harp Arpeggio + Interactive State Matrix</span>
+  </nav>
+
+  <main class="preview-stage">
+    <header class="preview-header">
+      <h1 class="preview-title">Neheh-Circuit</h1>
+      <p class="preview-subtitle">Shen Ring of Commitment · Interactive Decan &amp; Iris Sectors</p>
+    </header>
+
+    <section class="preview-card">
+      <div id="neheh-mount" class="neheh-svg-frame"></div>
+
+      <div class="preview-controls">
+        <button type="button" data-neheh-preset="empty" class="cyber-btn">Empty</button>
+        <button type="button" data-neheh-preset="day5" class="cyber-btn">Day 5</button>
+        <button type="button" data-neheh-preset="day10" class="cyber-btn">Day 10</button>
+        <button type="button" data-neheh-preset="irishalf" class="cyber-btn">Iris ½</button>
+        <button type="button" data-neheh-preset="full" class="cyber-btn cyber-btn-active">Full / Akh</button>
+        <button type="button" data-neheh-preset="decay" class="cyber-btn">Decay</button>
+      </div>
+
+      <div class="neheh-controls-panel">
+        <div>
+          <p class="neheh-label">Decan Indicators 1–10 (tap to cycle: unlit → active → missed)</p>
+          <div id="neheh-decan-row" class="neheh-toggle-row"></div>
+        </div>
+        <div>
+          <p class="neheh-label">Iris Indicators 1–7</p>
+          <div id="neheh-iris-row" class="neheh-toggle-row"></div>
+        </div>
+        <div class="neheh-ring-grid">
+          <button id="neheh-outer-btn" type="button" class="nhc-ring-btn">Outer Ring</button>
+          <button id="neheh-outermost-btn" type="button" class="nhc-ring-btn">Outermost</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="svg-bundle.js"></script>
+  <script src="previews.js"></script>
+</body>
+</html>
+

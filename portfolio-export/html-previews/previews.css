@@ -1,0 +1,837 @@
+/* ==========================================================================
+   Thoth's Notebook — Standalone HTML Preview Stylesheet
+   Zero inline styles; drop-in Cyber-Egyptian theme for portfolio embeds.
+   ========================================================================== */
+
+:root {
+  --void-bg: #050508;
+  --panel-bg: rgba(9, 13, 24, 0.88);
+  --panel-border: rgba(0, 255, 255, 0.22);
+  --cyber-cyan: #00ffff;
+  --ankh-gold: #ffc000;
+  --thoth-purple: #b915cc;
+  --duamutef-red: #ff0000;
+  --neon-lime: #39ff14;
+  --text-primary: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-dim: #475569;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-display: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% 25%, #0c1022 0%, var(--void-bg) 75%);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+}
+
+/* ── Top Navigation Bar ─────────────────────────────────────────────────── */
+.preview-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.85rem 1.5rem;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.14);
+  background: rgba(4, 6, 12, 0.85);
+  backdrop-filter: blur(10px);
+}
+
+.preview-back-link {
+  color: var(--cyber-cyan);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease;
+}
+
+.preview-back-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.preview-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ── Main Stage Layout ──────────────────────────────────────────────────── */
+.preview-stage {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.preview-header {
+  text-align: center;
+}
+
+.preview-title {
+  margin: 0 0 0.35rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cyber-cyan);
+  text-shadow: 0 0 18px rgba(0, 255, 255, 0.35);
+}
+
+.preview-title-purple {
+  color: #e879f9;
+  text-shadow: 0 0 18px rgba(185, 21, 204, 0.45);
+}
+
+.preview-title-cyan {
+  color: var(--cyber-cyan);
+  text-shadow: 0 0 18px rgba(0, 255, 255, 0.38);
+}
+
+.preview-title-gold {
+  color: var(--ankh-gold);
+  text-shadow: 0 0 18px rgba(255, 192, 0, 0.4);
+}
+
+.preview-subtitle {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ── Showcase Card & Controls ───────────────────────────────────────────── */
+.preview-card {
+  width: 100%;
+  max-width: 680px;
+  border-radius: 1.25rem;
+  border: 1px solid var(--panel-border);
+  background: var(--panel-bg);
+  box-shadow: 0 0 60px rgba(0, 255, 255, 0.08);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.preview-card-purple {
+  border-color: rgba(185, 21, 204, 0.32);
+  box-shadow: 0 0 60px rgba(185, 21, 204, 0.12);
+}
+
+.preview-card-wide {
+  max-width: 960px;
+}
+
+.preview-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.cyber-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.95rem;
+  border-radius: 0.55rem;
+  border: 1px solid rgba(71, 85, 105, 0.7);
+  background: rgba(10, 15, 28, 0.92);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cyber-btn:hover {
+  border-color: var(--cyber-cyan);
+  color: var(--cyber-cyan);
+  box-shadow: 0 0 14px rgba(0, 255, 255, 0.25);
+}
+
+.cyber-btn-active {
+  border-color: var(--cyber-cyan);
+  background: rgba(0, 255, 255, 0.14);
+  color: var(--cyber-cyan);
+  box-shadow: 0 0 16px rgba(0, 255, 255, 0.28);
+}
+
+.cyber-btn-purple {
+  border-color: rgba(185, 21, 204, 0.55);
+  color: #e879f9;
+}
+
+.cyber-btn-purple:hover {
+  border-color: #f0abfc;
+  background: rgba(185, 21, 204, 0.2);
+  color: #fae8ff;
+  box-shadow: 0 0 16px rgba(185, 21, 204, 0.4);
+}
+
+.cyber-btn-gold {
+  border-color: rgba(255, 192, 0, 0.55);
+  color: var(--ankh-gold);
+}
+
+.cyber-btn-gold:hover,
+.cyber-btn-gold.cyber-btn-active {
+  border-color: var(--ankh-gold);
+  background: rgba(255, 192, 0, 0.16);
+  color: #fde68a;
+  box-shadow: 0 0 16px rgba(255, 192, 0, 0.35);
+}
+
+.status-readout {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ── Shared Animations ──────────────────────────────────────────────────── */
+@keyframes pulse-purple-glow {
+  0%, 100% { filter: drop-shadow(0 0 12px rgba(185, 21, 204, 0.65)); }
+  50%      { filter: drop-shadow(0 0 28px rgba(185, 21, 204, 0.95)); }
+}
+
+@keyframes pulse-cyan-glow {
+  0%, 100% { filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5)); }
+  50%      { filter: drop-shadow(0 0 24px rgba(0, 255, 255, 0.9)); }
+}
+
+@keyframes pulse-gold-glow {
+  0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 192, 0, 0.5)); }
+  50%      { filter: drop-shadow(0 0 24px rgba(255, 192, 0, 0.9)); }
+}
+
+@keyframes pulse-red-glow {
+  0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.55)); }
+  50%      { filter: drop-shadow(0 0 24px rgba(255, 60, 60, 0.95)); }
+}
+
+@keyframes khepri-cycle {
+  0%   { color: #001eff; }
+  20%  { color: #b915cc; }
+  40%  { color: #ff3131; }
+  60%  { color: #00ffff; }
+  80%  { color: #39ff14; }
+  100% { color: #001eff; }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+/* ── Seshat Stage ───────────────────────────────────────────────────────── */
+.seshat-mount {
+  width: 100%;
+  max-width: 440px;
+  color: var(--thoth-purple);
+  animation: pulse-purple-glow 6s ease-in-out infinite;
+}
+
+.seshat-mount svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Ibis & Khepri Stages ───────────────────────────────────────────────── */
+.ibis-splash-card {
+  background: radial-gradient(circle at 50% 35%, rgba(17, 24, 39, 0.96) 0%, rgba(7, 11, 20, 0.98) 80%);
+  border-color: rgba(34, 211, 238, 0.3);
+}
+
+.ibis-splash-title {
+  margin: 0;
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #cffafe;
+  text-shadow: 0 0 12px rgba(34, 211, 238, 0.5);
+  text-align: center;
+}
+
+.ibis-splash-byline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.ibis-splash-powered {
+  font-family: var(--font-display);
+  font-size: 0.64rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(34, 211, 238, 0.8);
+}
+
+.ibis-splash-lab {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #67e8f9;
+  text-shadow: 0 0 8px rgba(34, 211, 238, 0.6);
+}
+
+.ibis-splash-hidden {
+  display: none;
+}
+
+.etch-svg-mount {
+  width: 240px;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #22d3ee;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.etch-svg-mount:hover {
+  transform: scale(1.02);
+}
+
+.etch-svg-mount:focus-visible {
+  outline: 1px dashed rgba(34, 211, 238, 0.6);
+  outline-offset: 6px;
+}
+
+.ibis-glow-cyan {
+  color: #22d3ee;
+  filter: drop-shadow(0 0 12px rgba(34, 211, 238, 0.45));
+}
+
+.ibis-glow-gold {
+  color: var(--ankh-gold);
+  filter: drop-shadow(0 0 12px rgba(255, 192, 0, 0.48));
+}
+
+.ibis-glow-purple {
+  color: #d946ef;
+  filter: drop-shadow(0 0 14px rgba(185, 21, 204, 0.6));
+}
+
+.etch-svg-mount svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+@keyframes prompt-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.38; }
+}
+
+.khepri-chronicle-card {
+  background: radial-gradient(circle at 50% 35%, rgba(6, 12, 28, 0.96), #000000 80%);
+}
+
+.khepri-liturgy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  color: hsl(280, 100%, 64%);
+  font-size: 1.12rem;
+  line-height: 1.45;
+  letter-spacing: 0.04em;
+  text-align: center;
+  transition: opacity 0.3s ease;
+}
+
+.khepri-liturgy-hidden {
+  display: none;
+}
+
+.khepri-stage-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.khepri-stage-wrap:focus-visible .khepri-substrate {
+  stroke: var(--cyber-cyan);
+}
+
+.khepri-mount {
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 106 / 62;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #001eff;
+  transition: color 0.6s ease;
+}
+
+.khepri-mount.khepri-cycling {
+  animation: khepri-cycle 8s linear infinite;
+}
+
+.khepri-mount.khepri-gold {
+  color: #ffd700;
+  animation: none;
+}
+
+.khepri-mount svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.khepri-substrate {
+  fill: #000000;
+  stroke: #001eff;
+  stroke-width: 0.7px;
+  filter: drop-shadow(0 0 5px #001eff);
+  transition: stroke 1s ease-in-out, filter 1s ease-in-out;
+}
+
+.khepri-mount.khepri-gold .khepri-substrate {
+  stroke: #ffd700;
+  filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.6));
+}
+
+.khepri-orb-el {
+  fill: #f0ead6;
+  stroke: none;
+  transform-box: fill-box;
+  transform-origin: center;
+  filter: blur(2px);
+  transition: fill 0.8s ease;
+}
+
+.khepri-mount.khepri-gold .khepri-orb-el {
+  fill: #ffd700;
+}
+
+.khepri-protocol-prompt {
+  margin: 0;
+  color: #22d3ee;
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.48em;
+  text-transform: uppercase;
+  text-align: center;
+  animation: prompt-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.khepri-protocol-prompt-gold {
+  color: #ffd700;
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.55);
+  animation: none;
+}
+
+/* ── Decryption Header Stage ────────────────────────────────────────────── */
+.decrypt-screen {
+  width: 100%;
+  min-height: 200px;
+  border-radius: 1rem;
+  border: 1px solid rgba(188, 19, 254, 0.28);
+  background: radial-gradient(ellipse at 50% 45%, rgba(22, 6, 42, 0.92), rgba(4, 4, 10, 0.98));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 2rem 1rem;
+  user-select: none;
+}
+
+.decrypt-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+}
+
+.decrypt-cell {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.6rem;
+  font-family: var(--font-mono);
+  font-size: 1.55rem;
+  font-weight: 700;
+  overflow: hidden;
+  transition: width 0.85s ease, opacity 0.85s ease, color 0.5s ease, text-shadow 0.5s ease;
+}
+
+.decrypt-cell-collapsed {
+  width: 0;
+  opacity: 0;
+}
+
+.decrypt-glyph-hidden {
+  opacity: 0;
+}
+
+.decrypt-fuchsia {
+  color: #f0abfc;
+  text-shadow: 0 0 8px #bc13fe, 0 0 20px #bc13fe, 0 0 36px #9400d3;
+}
+
+.decrypt-gold {
+  color: #fde68a;
+  text-shadow: 0 0 8px #d4af37, 0 0 20px #d4af37;
+}
+
+.decrypt-cursor {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bc13fe;
+  text-shadow: 0 0 8px #bc13fe, 0 0 20px #bc13fe;
+  animation: cursor-blink 0.65s step-end infinite;
+}
+
+.decrypt-input-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.cyber-input {
+  padding: 0.48rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0, 255, 255, 0.28);
+  background: rgba(6, 10, 20, 0.92);
+  color: var(--cyber-cyan);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  width: 11rem;
+  text-align: center;
+}
+
+.cyber-input:focus {
+  outline: none;
+  border-color: var(--cyber-cyan);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.25);
+}
+
+/* ── Neheh-Circuit Stage ────────────────────────────────────────────────── */
+.neheh-svg-frame {
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(34, 211, 238, 0.16);
+  background: rgba(2, 5, 12, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.neheh-svg-frame svg {
+  max-width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.neheh-controls-panel {
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.neheh-label {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.neheh-toggle-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.nhc-chip {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.4rem;
+  border: 1px solid #1e293b;
+  background: rgba(15, 23, 42, 0.75);
+  color: #64748b;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nhc-chip-active {
+  background: rgba(57, 255, 20, 0.14);
+  color: #39ff14;
+  border-color: #39ff14;
+  box-shadow: 0 0 10px rgba(57, 255, 20, 0.25);
+}
+
+.nhc-chip-missed {
+  background: rgba(248, 113, 113, 0.14);
+  color: #f87171;
+  border-color: #f87171;
+}
+
+.nhc-chip-iris {
+  background: rgba(192, 132, 252, 0.16);
+  color: #c084fc;
+  border-color: #c084fc;
+  box-shadow: 0 0 10px rgba(192, 132, 252, 0.25);
+}
+
+.neheh-ring-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+.nhc-ring-btn {
+  padding: 0.65rem;
+  border-radius: 0.65rem;
+  border: 1px solid #1e293b;
+  background: rgba(15, 23, 42, 0.75);
+  color: #64748b;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nhc-ring-outer-on {
+  background: rgba(248, 113, 113, 0.14);
+  color: #f87171;
+  border-color: #f87171;
+}
+
+.nhc-ring-outermost-on {
+  background: rgba(34, 211, 238, 0.14);
+  color: #22d3ee;
+  border-color: #22d3ee;
+}
+
+/* ── Obelisk Ritual Stage ───────────────────────────────────────────────── */
+.obelisk-viewport {
+  width: 100%;
+  max-width: 360px;
+  height: 500px;
+  border-radius: 1.1rem;
+  border: 1px solid rgba(0, 255, 255, 0.22);
+  background: #030611;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.obelisk-viewport svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.obelisk-float {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+/* ── Nedjem Bastet Standalone Stage ─────────────────────────────────────── */
+.bastet-card {
+  border-color: rgba(255, 192, 0, 0.28);
+  box-shadow: 0 0 60px rgba(0, 255, 255, 0.08), 0 0 40px rgba(255, 192, 0, 0.06);
+}
+
+.bastet-viewport {
+  width: 100%;
+  max-width: 390px;
+  height: 480px;
+  border-radius: 1.1rem;
+  border: 1px solid rgba(0, 255, 255, 0.24);
+  background: radial-gradient(circle at 52% 38%, rgba(12, 22, 42, 0.96) 0%, #030611 78%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem;
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+  transition: color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.bastet-viewport:hover {
+  border-color: rgba(255, 192, 0, 0.52);
+}
+
+.bastet-viewport:focus-visible {
+  outline: 1px dashed var(--ankh-gold);
+  outline-offset: 5px;
+}
+
+.bastet-viewport svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.bastet-finish-cyan {
+  color: #00ffff;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.28));
+}
+
+.bastet-finish-gold {
+  color: #ffc000;
+  filter: drop-shadow(0 0 10px rgba(255, 192, 0, 0.34));
+}
+
+.bastet-finish-turquoise {
+  color: #2dd4bf;
+  filter: drop-shadow(0 0 10px rgba(45, 212, 191, 0.34));
+}
+
+.bastet-finish-purple {
+  color: #e879f9;
+  filter: drop-shadow(0 0 12px rgba(232, 121, 249, 0.36));
+}
+
+.bastet-lore {
+  margin: 0;
+  max-width: 520px;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ── Ka Terminal Artifact Deck ──────────────────────────────────────────── */
+.ka-deck-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.25rem;
+}
+
+.ka-relic-card {
+  border-radius: 1.1rem;
+  border: 1px solid rgba(0, 255, 255, 0.18);
+  background: rgba(7, 11, 22, 0.9);
+  padding: 1.35rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  cursor: pointer;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ka-relic-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 255, 255, 0.5);
+  box-shadow: 0 8px 30px rgba(0, 255, 255, 0.12);
+}
+
+.ka-relic-art {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ka-relic-art svg {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.ka-glow-cyan   { color: var(--cyber-cyan);   animation: pulse-cyan-glow 4s ease-in-out infinite; }
+.ka-glow-red    { color: var(--duamutef-red); animation: pulse-red-glow 3.5s ease-in-out infinite; }
+.ka-glow-purple { color: var(--thoth-purple); animation: pulse-purple-glow 5s ease-in-out infinite; }
+.ka-glow-gold   { color: var(--ankh-gold);    animation: pulse-gold-glow 4.2s ease-in-out infinite; }
+
+.ka-relic-name {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.ka-relic-role {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: center;
+}
+
