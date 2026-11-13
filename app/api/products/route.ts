@@ -1,8 +1,6 @@
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '');
-
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const provider = searchParams.get('provider') || 'stripe';
@@ -75,6 +73,12 @@ export async function GET(req: Request) {
     }
 
     // Stripe catalog fetch
+    const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+    if (!stripeSecretKey) {
+      return NextResponse.json({ error: 'Stripe credentials missing' }, { status: 500 });
+    }
+    const stripe = new Stripe(stripeSecretKey);
+
     const products = await stripe.products.list({
       active: true,
       expand: ['data.default_price'],
